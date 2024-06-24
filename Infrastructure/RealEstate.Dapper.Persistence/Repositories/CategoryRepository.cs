@@ -18,7 +18,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task CreateAsync(Category entity)
         {
-            var query = "insert into Category (Name,Status) values(@name,@status)";
+            var query = "insert into Categories (Name,Status) values(@name,@status)";
             _dynamicParameters.Add("@name", entity.Name);
             _dynamicParameters.Add("@status", entity.Status);
 
@@ -27,7 +27,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var query = "delete * from Categories where Id=@id";
+            var query = "Delete From Categories where Id=@id";
             _dynamicParameters.Add("@id", id);
             await _connection.ExecuteAsync(query, _dynamicParameters);
         }

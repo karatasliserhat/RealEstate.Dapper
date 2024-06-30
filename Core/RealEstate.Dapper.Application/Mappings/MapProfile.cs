@@ -5,7 +5,7 @@ using RealEstate.Dapper.Domain.Entities;
 
 namespace RealEstate.Dapper.Application.Mappings
 {
-    public class MapProfile:Profile
+    public class MapProfile : Profile
     {
         public MapProfile()
         {
@@ -13,6 +13,7 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<Category, GetCategoryByIdQueryResult>().ReverseMap();
             CreateMap<Category, CreateCategoryCommand>().ReverseMap();
             CreateMap<Category, UpdateCategoryCommand>().ReverseMap();
+
         }
     }
 }

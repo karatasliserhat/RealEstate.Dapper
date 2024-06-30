@@ -28,7 +28,7 @@ builder.Services.AddScoped<IDbConnection>(sp =>
 builder.Services.AddApplicationService();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
 var app = builder.Build();

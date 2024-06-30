@@ -9,17 +9,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F2308542-C961-4790-9C28-62F6410D63FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.Application", "Core\RealEstate.Dapper.Application\RealEstate.Dapper.Application.csproj", "{283D20DA-B19C-43DB-86DD-6C901CFA2266}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Dapper.Application", "Core\RealEstate.Dapper.Application\RealEstate.Dapper.Application.csproj", "{283D20DA-B19C-43DB-86DD-6C901CFA2266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.Domain", "Core\RealEstate.Dapper.Domain\RealEstate.Dapper.Domain.csproj", "{D784F192-4BE8-4946-87E9-BBD2A084C889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Dapper.Domain", "Core\RealEstate.Dapper.Domain\RealEstate.Dapper.Domain.csproj", "{D784F192-4BE8-4946-87E9-BBD2A084C889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.Persistence", "Infrastructure\RealEstate.Dapper.Persistence\RealEstate.Dapper.Persistence.csproj", "{9FA8D060-B888-4D31-9394-22886EA32EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Dapper.Persistence", "Infrastructure\RealEstate.Dapper.Persistence\RealEstate.Dapper.Persistence.csproj", "{9FA8D060-B888-4D31-9394-22886EA32EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.WebAPI", "Presentation\RealEstate.Dapper.WebAPI\RealEstate.Dapper.WebAPI.csproj", "{3518FA68-2E05-42D9-849F-7826A4CA0C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Dapper.WebAPI", "Presentation\RealEstate.Dapper.WebAPI\RealEstate.Dapper.WebAPI.csproj", "{3518FA68-2E05-42D9-849F-7826A4CA0C89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{27D2A3D2-D0DF-4935-8133-89F3BBD5FE34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.WebUI", "Frontends\RealEstate.Dapper.WebUI\RealEstate.Dapper.WebUI.csproj", "{F9DB0A09-5718-4DE2-A1EC-8F8EC9D74D48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.Dapper.WebUI", "Frontends\RealEstate.Dapper.WebUI\RealEstate.Dapper.WebUI.csproj", "{F9DB0A09-5718-4DE2-A1EC-8F8EC9D74D48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shareds", "Shareds", "{31C9CDF7-3778-4AE0-A459-FE166F2F7AB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.Shared", "Shareds\RealEstate.Dapper.Shared\RealEstate.Dapper.Shared.csproj", "{32E97E91-0353-40B4-91F9-E2A7E3765460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.Dapper.ViewModel", "Frontends\RealEstate.Dapper.ViewModel\RealEstate.Dapper.ViewModel.csproj", "{C6310C06-A190-40E7-83A7-B39D275DA25C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +53,14 @@ Global
 		{F9DB0A09-5718-4DE2-A1EC-8F8EC9D74D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9DB0A09-5718-4DE2-A1EC-8F8EC9D74D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9DB0A09-5718-4DE2-A1EC-8F8EC9D74D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32E97E91-0353-40B4-91F9-E2A7E3765460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32E97E91-0353-40B4-91F9-E2A7E3765460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32E97E91-0353-40B4-91F9-E2A7E3765460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32E97E91-0353-40B4-91F9-E2A7E3765460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6310C06-A190-40E7-83A7-B39D275DA25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6310C06-A190-40E7-83A7-B39D275DA25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6310C06-A190-40E7-83A7-B39D275DA25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6310C06-A190-40E7-83A7-B39D275DA25C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +71,8 @@ Global
 		{9FA8D060-B888-4D31-9394-22886EA32EBA} = {0412FE6F-2F80-4F56-A4B6-FDB4DCBDDD0D}
 		{3518FA68-2E05-42D9-849F-7826A4CA0C89} = {F2308542-C961-4790-9C28-62F6410D63FC}
 		{F9DB0A09-5718-4DE2-A1EC-8F8EC9D74D48} = {27D2A3D2-D0DF-4935-8133-89F3BBD5FE34}
+		{32E97E91-0353-40B4-91F9-E2A7E3765460} = {31C9CDF7-3778-4AE0-A459-FE166F2F7AB3}
+		{C6310C06-A190-40E7-83A7-B39D275DA25C} = {27D2A3D2-D0DF-4935-8133-89F3BBD5FE34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C94384ED-553C-4885-9069-DC96E8C9D45C}

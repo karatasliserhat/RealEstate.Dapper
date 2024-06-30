@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\IApiCommandService\IBaseCommandService\" />
+    <Folder Include="Abstract\IApiCommandService\IProductCommandService\" />
+    <Folder Include="Services\ApiCommandService\BaseCommandService\" />
+    <Folder Include="Services\ApiCommandService\ProductCommandService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Frontends\RealEstate.Dapper.ViewModel\RealEstate.Dapper.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RealEstate.Dapper.Shared.Abstract.IApiReadService.IProductReadService;
 
 namespace RealEstate.Dapper.WebUI.ViewComponents.UILayoutViewComponents
 {
-    public class _UILayoutLocationComponentPartial:ViewComponent
+    public class _UILayoutLocationComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IProductReadApiService _productReadApiService;
+
+        public _UILayoutLocationComponentPartial(IProductReadApiService productReadApiService)
         {
-            return View();
+            _productReadApiService = productReadApiService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _productReadApiService.GetListProductWithCategoryAndEmployeeAsync();
+            return View(values);
         }
     }
 }

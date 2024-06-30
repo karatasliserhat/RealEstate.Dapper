@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b66f7c06-fa62-43a5-b2d5-0a2bd55a2889</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,10 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shareds\RealEstate.Dapper.Shared\RealEstate.Dapper.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

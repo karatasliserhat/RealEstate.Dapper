@@ -3,25 +3,22 @@
     Layout = null;
 }
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!doctype html>
 <html lang="en">
+
 @await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+
 <body>
 
-    <!--header-->
     @await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
-    <!--/header-->
-    @await Component.InvokeAsync("_UILayoutSearchComponentPartial") 
 
-   @RenderBody()
+    @await Component.InvokeAsync("_UILayoutSearchComponentPartial")
 
-    @await Component.InvokeAsync("_UILayoutFooterComponentPartial") 
+    @RenderBody()
 
-    @await Component.InvokeAsync("_UILayoutScriptsComponentPartial") 
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+    @await Component.InvokeAsync("_UILayoutScriptsComponentPartial")
 
 
 </body>

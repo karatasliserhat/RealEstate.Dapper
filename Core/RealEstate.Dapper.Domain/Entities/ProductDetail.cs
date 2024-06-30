@@ -11,6 +11,7 @@
         public decimal Price { get; set; }
         public string Location { get; set; }
         public string VideoUrl { get; set; }
-        public List<Product> Products { get; set; }
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

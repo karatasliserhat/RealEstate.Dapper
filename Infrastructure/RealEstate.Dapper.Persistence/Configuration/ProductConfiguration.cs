@@ -10,7 +10,8 @@ namespace RealEstate.Dapper.Domain.Configuration
         {
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Category).WithMany(x => x.Products).HasForeignKey(x => x.CategoryId);
-            builder.HasOne(x => x.ProductDetail).WithMany(x => x.Products).HasForeignKey(x => x.ProductDetailId);
+            builder.HasOne(x => x.Employee).WithMany(x => x.Products).HasForeignKey(x => x.EmployeeId);
+            builder.HasMany(x => x.ProductDetails).WithOne(x => x.Product).HasForeignKey(x => x.ProductId);
         }
     }
 }

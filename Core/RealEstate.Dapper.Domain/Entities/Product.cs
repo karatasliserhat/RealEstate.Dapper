@@ -12,7 +12,9 @@
         public string Description { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-        public int ProductDetailId { get; set; }
-        public virtual ProductDetail ProductDetail { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual Employee Employee { get; set; }
+        public List<ProductDetail> ProductDetails { get; set; }
+
     }
 }

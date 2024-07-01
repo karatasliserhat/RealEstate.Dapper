@@ -9,7 +9,6 @@ namespace RealEstate.Dapper.Application.Interface
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(int id);
-        Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter);
 
     }
 }

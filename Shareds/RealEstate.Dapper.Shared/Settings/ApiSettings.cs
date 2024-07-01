@@ -4,5 +4,6 @@
     {
         public string CategoryBaseUrl { get ; set; }
         public string ProductBaseUrl { get ; set;  }
+        public string AboutDetailBaseUrl { get ; set;  }
     }
 }

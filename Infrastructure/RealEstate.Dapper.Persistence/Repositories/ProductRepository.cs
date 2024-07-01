@@ -28,10 +28,6 @@ namespace RealEstate.Dapper.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Product> GetByFilterAsync(Expression<Func<Product, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<Product> GetByIdAsync(int id)
         {
@@ -45,7 +41,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListProductWithEmployeeAndCategory()
         {
-            var query = "Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id";
+            var query = "Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id";
             var values = await _connection.QueryAsync<GetListProductWithCategoryAndEmployeeQueryResult>(query);
             return values.ToList();
         }

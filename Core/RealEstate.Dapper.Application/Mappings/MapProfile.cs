@@ -14,6 +14,10 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<Category, CreateCategoryCommand>().ReverseMap();
             CreateMap<Category, UpdateCategoryCommand>().ReverseMap();
 
+            CreateMap<AboutDetail, GetAboutDetailQueryResult>().ReverseMap();
+            CreateMap<AboutDetail, GetByIdAboutDetailQueryResult>().ReverseMap();
+            CreateMap<AboutDetail, CreateAboutDetailCommand>().ReverseMap();
+            CreateMap<AboutDetail, UpdateAboutDetailCommand>().ReverseMap();
         }
     }
 }

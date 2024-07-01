@@ -32,12 +32,6 @@ namespace RealEstate.Dapper.Persistence.Repositories
             await _connection.ExecuteAsync(query, _dynamicParameters);
         }
 
-        public async Task<Category> GetByFilterAsync(Expression<Func<Category, bool>> filter)
-        {
-            var query = "Select * From Categories @filter";
-            _dynamicParameters.Add("@filter", filter);
-            return await _connection.QueryFirstOrDefaultAsync<Category>(query,_dynamicParameters);
-        }
 
         public async Task<Category> GetByIdAsync(int id)
         {

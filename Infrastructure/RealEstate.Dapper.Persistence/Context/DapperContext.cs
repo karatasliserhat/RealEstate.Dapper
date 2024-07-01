@@ -15,6 +15,8 @@ namespace RealEstate.Dapper.Persistence.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<AboutDetail> AboutDetails { get; set; }
+        public DbSet<AboutService> AboutServices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

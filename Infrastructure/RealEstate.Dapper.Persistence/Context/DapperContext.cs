@@ -17,6 +17,8 @@ namespace RealEstate.Dapper.Persistence.Context
         public DbSet<Employee> Employees { get; set; }
         public DbSet<AboutDetail> AboutDetails { get; set; }
         public DbSet<AboutService> AboutServices { get; set; }
+        public DbSet<StepsGrid> StepsGrids { get; set; }
+        public DbSet<PopulerLocation> PopulerLocations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

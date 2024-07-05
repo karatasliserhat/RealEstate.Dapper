@@ -30,6 +30,7 @@ builder.Services.AddApplicationService();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAboutDetailRepository, AboutDetailRepository>();
+builder.Services.AddScoped<IAboutServiceRepository, AboutServiceRepository>();
 
 var app = builder.Build();
 

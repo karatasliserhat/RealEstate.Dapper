@@ -6,5 +6,6 @@
         public string ProductBaseUrl { get ; set;  }
         public string AboutDetailBaseUrl { get ; set;  }
         public string AboutServiceBaseUrl { get ; set;  }
+        public string StepsGridBaseUrl { get ; set;  }
     }
 }

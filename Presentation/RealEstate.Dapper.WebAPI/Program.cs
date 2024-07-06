@@ -31,6 +31,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAboutDetailRepository, AboutDetailRepository>();
 builder.Services.AddScoped<IAboutServiceRepository, AboutServiceRepository>();
+builder.Services.AddScoped<IStepsGridRepository, StepsGridRepository>();
 
 var app = builder.Build();
 

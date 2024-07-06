@@ -23,6 +23,11 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<AboutService, GetAboutServiceByIdQueryResult>().ReverseMap();
             CreateMap<AboutService, CreateAboutServiceCommand>().ReverseMap();
             CreateMap<AboutService, UpdateAboutServiceCommand>().ReverseMap();
+
+            CreateMap<StepsGrid, GetStepsGridQueryResult>().ReverseMap();
+            CreateMap<StepsGrid, GetStepsGridByIdQueryResult>().ReverseMap();
+            CreateMap<StepsGrid, CreateStepsGridCommand>().ReverseMap();
+            CreateMap<StepsGrid, UpdateStepsGridCommand>().ReverseMap();
         }
     }
 }

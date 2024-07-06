@@ -19,6 +19,12 @@ namespace RealEstate.Dapper.Persistence.Context
         public DbSet<AboutService> AboutServices { get; set; }
         public DbSet<StepsGrid> StepsGrids { get; set; }
         public DbSet<PopulerLocation> PopulerLocations { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<SubFeature> SubFeatures { get; set; }
+        public DbSet<MailSubscribe> mailSubscribes { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

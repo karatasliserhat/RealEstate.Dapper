@@ -2,7 +2,7 @@
 
 namespace RealEstate.Dapper.WebUI.ViewComponents.UILayoutViewComponents
 {
-    public class _UILayoutAboutTwoCompoanentPartial : ViewComponent
+    public class _UILayoutSubFeatureComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

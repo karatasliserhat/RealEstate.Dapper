@@ -64,6 +64,16 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             {
                 opt.BaseAddress = new Uri(apiUrl.StepsGridBaseUrl.ToString());
             });
+
+            Services.AddHttpClient<IPopulerLocationReadApiService, PopulerLocationReadApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.PopulerLocationBaseUrl.ToString());
+            });
+            Services.AddHttpClient<IPopulerLocationCommandApiService, PopulerLocationCommandApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.PopulerLocationBaseUrl.ToString());
+            });
+
         }
     }
 }

@@ -28,6 +28,11 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<StepsGrid, GetStepsGridByIdQueryResult>().ReverseMap();
             CreateMap<StepsGrid, CreateStepsGridCommand>().ReverseMap();
             CreateMap<StepsGrid, UpdateStepsGridCommand>().ReverseMap();
+
+            CreateMap<PopulerLocation, GetPopulerLocationQueryResult>().ReverseMap();
+            CreateMap<PopulerLocation, GetPopulerLocationByIdQueryResult>().ReverseMap();
+            CreateMap<PopulerLocation, CreatePopulerLocationCommand>().ReverseMap();
+            CreateMap<PopulerLocation, UpdatePopulerLocationCommand>().ReverseMap();
         }
     }
 }

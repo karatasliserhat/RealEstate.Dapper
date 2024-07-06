@@ -33,6 +33,7 @@ builder.Services.AddScoped<IAboutDetailRepository, AboutDetailRepository>();
 builder.Services.AddScoped<IAboutServiceRepository, AboutServiceRepository>();
 builder.Services.AddScoped<IStepsGridRepository, StepsGridRepository>();
 builder.Services.AddScoped<IPopulerLocationRepository, PopulerLocationRepository>();
+builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
 
 var app = builder.Build();
 

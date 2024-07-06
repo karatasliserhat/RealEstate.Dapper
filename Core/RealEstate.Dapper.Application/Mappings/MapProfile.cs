@@ -32,7 +32,12 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<PopulerLocation, GetPopulerLocationQueryResult>().ReverseMap();
             CreateMap<PopulerLocation, GetPopulerLocationByIdQueryResult>().ReverseMap();
             CreateMap<PopulerLocation, CreatePopulerLocationCommand>().ReverseMap();
-            CreateMap<PopulerLocation, UpdatePopulerLocationCommand>().ReverseMap();
+            CreateMap<PopulerLocation, UpdatePopulerLocationCommand>().ReverseMap(); 
+            
+            CreateMap<Testimonial, GetTestimonialQueryResult>().ReverseMap();
+            CreateMap<Testimonial, GetTestimonialByIdQueryResult>().ReverseMap();
+            CreateMap<Testimonial, CreateTestimonialCommand>().ReverseMap();
+            CreateMap<Testimonial, UpdateTestimonialCommand>().ReverseMap();
         }
     }
 }

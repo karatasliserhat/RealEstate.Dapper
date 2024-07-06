@@ -8,6 +8,7 @@
         string AboutServiceBaseUrl { get; set; }
         string StepsGridBaseUrl { get; set; }
         string PopulerLocationBaseUrl { get; set; }
+        string TestimonialBaseUrl { get; set; }
 
     }
 }

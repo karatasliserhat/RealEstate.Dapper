@@ -6,11 +6,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@await Component.InvokeAsync("_AdminLayoutHeadViewComponentPartial");
+@await Component.InvokeAsync("_AdminLayoutHeadViewComponentPartial")
 
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
         @await Component.InvokeAsync("_AdminLayoutSpinnerViewComponentPartial")
 
         @await Component.InvokeAsync("_AdminLayoutSidebarViewComponentPartial")

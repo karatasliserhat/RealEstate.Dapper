@@ -40,6 +40,10 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             {
                 opt.BaseAddress = new Uri(apiUrl.ProductBaseUrl.ToString());
             });
+            Services.AddHttpClient<IProductCommandApiService, ProductCommandApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.ProductBaseUrl.ToString());
+            });
 
             Services.AddHttpClient<IAboutDetailReadApiService, AboutDetailReadApiService>(opt =>
             {
@@ -95,6 +99,16 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
                 opt.BaseAddress = new Uri(apiUrl.CategoryBaseUrl.ToString());
             });
 
+            Services.AddHttpClient<IEmployeeReadApiService, EmployeeReadApiService>(opt =>
+            {
+
+                opt.BaseAddress = new Uri(apiUrl.EmployeeBaseUrl.ToString());
+            });
+            Services.AddHttpClient<IEmployeeCommandApiService, EmployeeCommandApiService>(opt =>
+            {
+
+                opt.BaseAddress = new Uri(apiUrl.EmployeeBaseUrl.ToString());
+            });
         }
     }
 }

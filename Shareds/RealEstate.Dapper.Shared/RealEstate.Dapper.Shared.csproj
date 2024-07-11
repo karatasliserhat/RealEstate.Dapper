@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\IApiCommandService\IProductCommandService\" />
-    <Folder Include="Services\ApiCommandService\ProductCommandService\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Frontends\RealEstate.Dapper.ViewModel\RealEstate.Dapper.ViewModel.csproj" />
   </ItemGroup>
 

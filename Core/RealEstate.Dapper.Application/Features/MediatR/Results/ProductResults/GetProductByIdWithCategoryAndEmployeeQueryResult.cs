@@ -1,6 +1,6 @@
-﻿namespace RealEstate.Dapper.ViewModel.ViewModels
+﻿namespace RealEstate.Dapper.Application.Features.MediatR.Results
 {
-    public class ResultProductViewModel
+    public class GetProductByIdWithCategoryAndEmployeeQueryResult
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -8,10 +8,9 @@
         public string CoverImage { get; set; }
         public string City { get; set; }
         public string District { get; set; }
-        public string Address { get; set; }
-        public string Description { get; set; }
         public string Type { get; set; }
-        public int CategoryId { get; set; }
-        public int EmployeeId { get; set; }
+        public string Address { get; set; }
+        public string CategoryName { get; set; }
+        public string EmployeeName { get; set; }
     }
 }

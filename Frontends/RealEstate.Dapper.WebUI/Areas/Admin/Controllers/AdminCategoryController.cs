@@ -9,13 +9,13 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[Controller]/[Action]")]
-    public class CategoryController : Controller
+    public class AdminCategoryController : Controller
     {
         private readonly ICategoryReadApiService _categoryReadApiService;
         private readonly ICategoryCommandApiService _categoryCommandApiService;
         private readonly IDataProtector _dataProtector;
         private readonly IMapper _mapper;
-        public CategoryController(ICategoryReadApiService categoryReadApiService, IDataProtectionProvider _dataProtectProvider, ICategoryCommandApiService categoryCommandApiService, IMapper mapper)
+        public AdminCategoryController(ICategoryReadApiService categoryReadApiService, IDataProtectionProvider _dataProtectProvider, ICategoryCommandApiService categoryCommandApiService, IMapper mapper)
         {
             _dataProtector = _dataProtectProvider.CreateProtector("CategoryController");
             _categoryReadApiService = categoryReadApiService;

@@ -1,6 +1,6 @@
-﻿namespace RealEstate.Dapper.ViewModel.ViewModels
+﻿namespace RealEstate.Dapper.Application.Features.MediatR.Results
 {
-    public class ResultProductViewModel
+    public class GetProductByIdQueryResult
     {
         public int Id { get; set; }
         public string Title { get; set; }

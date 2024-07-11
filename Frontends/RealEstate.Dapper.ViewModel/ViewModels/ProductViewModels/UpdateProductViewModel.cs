@@ -1,6 +1,6 @@
 ﻿namespace RealEstate.Dapper.ViewModel.ViewModels
 {
-    public class ResultProductViewModel
+    public class UpdateProductViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

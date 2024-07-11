@@ -1,8 +1,9 @@
-﻿namespace RealEstate.Dapper.ViewModel.ViewModels
+﻿using MediatR;
+
+namespace RealEstate.Dapper.Application.Features.MediatR.Commands
 {
-    public class ResultProductViewModel
+    public class CreateProductCommand:IRequest
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string CoverImage { get; set; }

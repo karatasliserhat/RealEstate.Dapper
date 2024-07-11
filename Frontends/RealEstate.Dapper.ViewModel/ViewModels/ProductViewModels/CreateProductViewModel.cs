@@ -1,8 +1,7 @@
 ﻿namespace RealEstate.Dapper.ViewModel.ViewModels
 {
-    public class ResultProductViewModel
+    public class CreateProductViewModel
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string CoverImage { get; set; }

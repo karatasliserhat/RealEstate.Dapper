@@ -9,5 +9,6 @@
         public string StepsGridBaseUrl { get ; set;  }
         public string PopulerLocationBaseUrl { get ; set;  }
         public string TestimonialBaseUrl { get ; set;  }
+        public string EmployeeBaseUrl { get; set; }
     }
 }

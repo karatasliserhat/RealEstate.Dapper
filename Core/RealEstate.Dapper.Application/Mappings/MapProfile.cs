@@ -38,6 +38,18 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<Testimonial, GetTestimonialByIdQueryResult>().ReverseMap();
             CreateMap<Testimonial, CreateTestimonialCommand>().ReverseMap();
             CreateMap<Testimonial, UpdateTestimonialCommand>().ReverseMap();
+
+
+            CreateMap<Product, GetProductByIdQueryResult>().ReverseMap();
+            CreateMap<Product, UpdateProductCommand>().ReverseMap();
+            CreateMap<Product, CreateProductCommand>().ReverseMap();
+
+            CreateMap<Employee, GetEmployeeQueryResult>().ReverseMap();
+            CreateMap<Employee, GetEmployeeByIdQueryResult>().ReverseMap();
+            CreateMap<Employee, CreateEmployeeCommand>().ReverseMap();
+            CreateMap<Employee, UpdateEmployeeCommand>().ReverseMap();
+
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using RealEstate.Dapper.Application.Features.MediatR.Commands;
 using RealEstate.Dapper.Application.Features.MediatR.Queries;
 
 namespace RealEstate.Dapper.WebAPI.Controllers
@@ -19,6 +20,34 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         public async Task<IActionResult> GetListProductWithCategoryAndEmplooye()
         {
             return Ok(await _mediator.Send(new GetListProductWithCategoryAndEmployeeQuery()));
+        }
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetProductById(int id)
+        {
+            return Ok(await _mediator.Send(new GetProductByIdQuery(id)));
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductByIdWithCategoryAndEmployee(int id)
+        {
+            return Ok(await _mediator.Send(new GetProductByIdWithCategoryAndEmployeeQuery(id)));
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            await _mediator.Send(new RemoveProductCommand(id));
+            return Ok($"{id} li Ürün Silinmiştir");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommand updateProductCommand)
+        {
+            await _mediator.Send(updateProductCommand);
+            return Ok("Ürün Güncellemesi Yapıldı");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(CreateProductCommand createProductCommand)
+        {
+            await _mediator.Send(createProductCommand);
+            return Created();
         }
     }
 }

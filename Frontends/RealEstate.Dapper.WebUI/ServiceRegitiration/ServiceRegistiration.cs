@@ -7,6 +7,7 @@ using RealEstate.Dapper.Shared.Services.ApiReadService;
 using RealEstate.Dapper.Shared.Services.ApiReadService.AboutDetailReadService;
 using RealEstate.Dapper.Shared.Services.ApiReadService.ProductReadService;
 using RealEstate.Dapper.Shared.Settings;
+using System.Reflection;
 
 namespace RealEstate.Dapper.WebUI.ServiceRegitiration
 {
@@ -14,6 +15,8 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
     {
         public static void AddServiceRegister(this IServiceCollection Services, IConfiguration configuration)
         {
+            Services.AddDataProtection();
+            Services.AddAutoMapper(Assembly.GetExecutingAssembly());
             Services.Configure<ApiSettings>(configuration.GetSection(nameof(ApiSettings)));
 
             Services.AddScoped<IApiSettings>(sp =>
@@ -81,6 +84,15 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             Services.AddHttpClient<ITestimonialCommandApiService, TestimonialCommandApiService>(opt =>
             {
                 opt.BaseAddress = new Uri(apiUrl.TestimonialBaseUrl.ToString());
+            });
+
+            Services.AddHttpClient<ICategoryReadApiService, CategoryReadApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.CategoryBaseUrl.ToString());
+            });
+            Services.AddHttpClient<ICategoryCommandApiService, CategoryCommandApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.CategoryBaseUrl.ToString());
             });
 
         }

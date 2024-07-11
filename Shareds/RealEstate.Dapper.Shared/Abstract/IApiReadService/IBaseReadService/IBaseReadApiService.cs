@@ -6,5 +6,6 @@
         Task<ResultViewModel> GetByIdAsync(string id);
         Task<List<ResultViewModel>> GetListAsync();
         Task<List<ResultViewModel>> GetListAsync(string actionName);
+        Task<ResultViewModel> GetByIdAsync(string ActionName, int id);
     }
 }

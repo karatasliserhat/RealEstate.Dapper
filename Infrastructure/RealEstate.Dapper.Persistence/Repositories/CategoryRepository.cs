@@ -2,7 +2,6 @@
 using RealEstate.Dapper.Application.Interface;
 using RealEstate.Dapper.Domain.Entities;
 using System.Data;
-using System.Linq.Expressions;
 
 namespace RealEstate.Dapper.Persistence.Repositories
 {

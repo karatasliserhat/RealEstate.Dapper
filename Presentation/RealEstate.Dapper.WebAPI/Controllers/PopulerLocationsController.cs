@@ -21,7 +21,7 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediatr.Send(new GetPopulerLocationQuery()));
         }
-        [HttpGet("{id}")]
+        [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetPopulerLocationById(int id)
         {
             return Ok(await _mediatr.Send(new GetPopulerLocationByIdQuery(id)));

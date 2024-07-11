@@ -16,7 +16,10 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService
         {
             return await _httpClient.GetFromJsonAsync<ResultViewModel>($"{id}");
         }
-
+        public async Task<ResultViewModel> GetByIdAsync(string ActionName, int id)
+        {
+            return await _httpClient.GetFromJsonAsync<ResultViewModel>($"{ActionName}/{id}");
+        }
         public async Task<ResultViewModel> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<ResultViewModel>($"{id}");
@@ -24,7 +27,7 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService
 
         public async Task<List<ResultViewModel>> GetListAsync()
         {
-            return await _httpClient.GetFromJsonAsync<List<ResultViewModel>>("");
+            return await _httpClient.GetFromJsonAsync<List<ResultViewModel>>(string.Empty);
         }
 
         public async Task<List<ResultViewModel>> GetListAsync(string actionName)

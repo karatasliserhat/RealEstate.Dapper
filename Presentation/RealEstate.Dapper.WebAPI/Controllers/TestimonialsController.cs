@@ -20,7 +20,7 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediator.Send(new GetTestimonialQuery()));
         }
-        [HttpGet("[action]/id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetTestimonial(int id)
         {
             return Ok(await _mediator.Send(new GetTestimonialByIdQuery(id)));

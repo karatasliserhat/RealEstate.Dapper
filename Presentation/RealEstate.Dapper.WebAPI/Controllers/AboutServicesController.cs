@@ -21,7 +21,7 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediator.Send(new GetAboutServiceQeury()));
         }
-        [HttpGet("[action]/id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetAboutService(int id)
         {
             return Ok(await _mediator.Send(new GetAboutServiceByIdQuery(id)));

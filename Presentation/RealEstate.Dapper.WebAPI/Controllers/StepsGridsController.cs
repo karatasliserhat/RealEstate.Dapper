@@ -21,7 +21,7 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediator.Send(new GetStepsGridQuery()));
         }
-        [HttpGet("[action]/id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetStepsGrid(int id)
         {
             return Ok(await _mediator.Send(new GetStepsGridByIdQuery(id)));

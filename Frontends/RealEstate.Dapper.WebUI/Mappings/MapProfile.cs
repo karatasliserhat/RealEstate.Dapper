@@ -8,6 +8,7 @@ namespace RealEstate.Dapper.WebUI.Mappings
         public MapProfile()
         {
             CreateMap<ResultCategoryViewModel, UpdateCategoryViewModel>().ReverseMap();
+            CreateMap<ResultProductViewModel, UpdateProductViewModel>().ReverseMap();
         }
     }
 }

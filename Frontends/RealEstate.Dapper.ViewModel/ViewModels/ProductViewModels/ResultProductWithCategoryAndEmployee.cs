@@ -12,5 +12,6 @@
         public string Address { get; set; }
         public string CategoryName { get; set; }
         public string EmployeeName { get; set; }
+        public string DataProtect { get; set; }
     }
 }

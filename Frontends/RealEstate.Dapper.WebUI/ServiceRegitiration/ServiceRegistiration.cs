@@ -7,6 +7,7 @@ using RealEstate.Dapper.Shared.Services.ApiReadService;
 using RealEstate.Dapper.Shared.Services.ApiReadService.AboutDetailReadService;
 using RealEstate.Dapper.Shared.Services.ApiReadService.ProductReadService;
 using RealEstate.Dapper.Shared.Settings;
+using RealEstate.Dapper.WebUI.Tools;
 using System.Reflection;
 
 namespace RealEstate.Dapper.WebUI.ServiceRegitiration
@@ -19,6 +20,8 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             Services.AddAutoMapper(Assembly.GetExecutingAssembly());
             Services.Configure<ApiSettings>(configuration.GetSection(nameof(ApiSettings)));
 
+
+            Services.AddScoped<GetEmployeeAndCategorySelectList>();
             Services.AddScoped<IApiSettings>(sp =>
             {
                 return sp.GetRequiredService<IOptions<ApiSettings>>().Value;

@@ -112,6 +112,16 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
 
                 opt.BaseAddress = new Uri(apiUrl.EmployeeBaseUrl.ToString());
             });
+
+            Services.AddScoped(typeof(IStatisticsReadApiService<>), typeof(StatisticsReadApiService<>)).ConfigureHttpClientDefaults(opt =>
+            {
+                opt.ConfigureHttpClient(opt =>
+                {
+                    opt.BaseAddress = new Uri(apiUrl.StatisticsBaseUrl.ToString());
+                });
+            });
+
+
         }
     }
 }

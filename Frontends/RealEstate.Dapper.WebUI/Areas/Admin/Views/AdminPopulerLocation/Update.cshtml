@@ -1,0 +1,28 @@
+﻿@model UpdatePopulerLocationViewModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/AdminLayaout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <form asp-action="Update" method="post">
+                <div class="bg-light rounded h-100 p-4">
+                    <input type="hidden" asp-for="@Model.Id" />
+                    <input type="hidden" asp-for="@Model.Status" />
+                    <h6 class="mb-4">Lokasyon Güncelleme Sayfası</h6>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.CityName" />
+                        <label>Şehir Adı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.ImageUrl" />
+                        <label>Resim Yolu</label>
+                    </div>
+                    <input type="submit" class="btn btn-success" name="name" value="Güncelle" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

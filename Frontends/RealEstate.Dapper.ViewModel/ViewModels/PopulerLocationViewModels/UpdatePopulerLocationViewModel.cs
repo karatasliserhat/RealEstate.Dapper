@@ -1,6 +1,6 @@
 ﻿namespace RealEstate.Dapper.ViewModel.ViewModels
 {
-    public class ResultPopulerLocation
+    public class UpdatePopulerLocationViewModel
     {
         public int Id { get; set; }
         public string CityName { get; set; }

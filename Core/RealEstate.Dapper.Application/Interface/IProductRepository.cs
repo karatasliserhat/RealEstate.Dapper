@@ -1,5 +1,4 @@
-﻿using RealEstate.Dapper.Application.Features.MediatR.Queries;
-using RealEstate.Dapper.Application.Features.MediatR.Results;
+﻿using RealEstate.Dapper.Application.Features.MediatR.Results;
 using RealEstate.Dapper.Domain.Entities;
 
 namespace RealEstate.Dapper.Application.Interface
@@ -8,5 +7,8 @@ namespace RealEstate.Dapper.Application.Interface
     {
         Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListProductWithEmployeeAndCategory();
         Task<GetProductByIdWithCategoryAndEmployeeQueryResult> GetByIdWithCategoryAndEmployeeAsync(int id);
+
+        Task DealOfTheDayTrue(int id);
+        Task DealOfTheDayFalse(int id);
     }
 }

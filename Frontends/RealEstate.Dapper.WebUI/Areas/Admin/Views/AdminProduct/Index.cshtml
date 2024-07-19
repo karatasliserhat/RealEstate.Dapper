@@ -23,6 +23,7 @@
                                 <th scope="col">İlan Tipi</th>
                                 <th scope="col">Adres</th>
                                 <th scope="col">Personel</th>
+                                <th scope="col">Günün Fırsatı</th>
                                 <th scope="col">Güncelle</th>
                                 <th scope="col">Sil</th>
                             </tr>
@@ -43,7 +44,14 @@
                                         <td>@item.Type</td>
                                         <td>@item.Address</td>
                                         <td>@item.EmployeeName</td>
-                                        
+                                        @if (item.DealOfTheDay == false)
+                                        {
+                                            <td><a asp-action="DealOfTheDayTrue" asp-controller="AdminProduct" asp-route-dataId="@item.DataProtect" class="btn btn-outline-primary">Aktif Yap</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><a asp-action="DealOfTheDayFalse" asp-controller="AdminProduct" asp-route-dataId="@item.DataProtect" class="btn btn-outline-info">Pasif Yap</a></td>
+                                        }
                                         <td><a asp-action="Update" asp-controller="AdminProduct" asp-route-dataId="@item.DataProtect" class="btn btn-outline-warning">Güncelle</a></td>
                                         <td><a asp-action="Delete" asp-controller="AdminProduct" asp-route-dataId="@item.DataProtect" class="btn btn-outline-danger">Sil</a></td>
                                     </tr>

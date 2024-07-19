@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
 using RealEstate.Dapper.Shared.Abstract.IApiCommandService;
 using RealEstate.Dapper.Shared.Abstract.IApiReadService.IProductReadService;
 using RealEstate.Dapper.ViewModel.ViewModels;
@@ -91,6 +90,27 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
         {
             var dataValue = int.Parse(_dataProtector.Unprotect(dataId));
             var result = await _productCommandApiService.DeleteAsync(dataValue);
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> DealOfTheDayTrue(string dataId)
+        {
+            var dataValue = int.Parse(_dataProtector.Unprotect(dataId));
+            var result =await _productCommandApiService.DealOfTheDayTrue(dataValue);
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+        public async Task<IActionResult> DealOfTheDayFalse(string dataId)
+        {
+            var dataValue = int.Parse(_dataProtector.Unprotect(dataId));
+            var result = await _productCommandApiService.DealOfTheDayFalse(dataValue);
             if (result.IsSuccessStatusCode)
             {
                 return RedirectToAction(nameof(Index));

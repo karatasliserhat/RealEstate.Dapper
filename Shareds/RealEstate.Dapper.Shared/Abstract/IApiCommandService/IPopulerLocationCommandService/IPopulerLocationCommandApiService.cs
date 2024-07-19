@@ -2,7 +2,7 @@
 
 namespace RealEstate.Dapper.Shared.Abstract.IApiCommandService
 {
-    public interface IPopulerLocationCommandApiService:IBaseCommandApiService<UpdatePopulerLocation,CreatePopulerLocation>
+    public interface IPopulerLocationCommandApiService:IBaseCommandApiService<UpdatePopulerLocationViewModel,CreatePopulerLocationViewModel>
     {
     }
 }

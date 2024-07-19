@@ -19,7 +19,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
         {
             var query = "Insert Into AboutServices (AboutServiceName,AboutServiceStatus) Values(@aboutServiceName,@aboutServiceStatus)";
             _dynamicParameters.Add("@aboutServiceName", entity.AboutServiceName);
-            _dynamicParameters.Add("@aboutServiceStatus", entity.AboutServiceStatus);
+            _dynamicParameters.Add("@aboutServiceStatus", true);
 
             await _connection.ExecuteAsync(query, _dynamicParameters);
         }

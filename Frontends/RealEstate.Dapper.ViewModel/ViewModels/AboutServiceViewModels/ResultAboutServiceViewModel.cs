@@ -5,5 +5,6 @@
         public int Id { get; set; }
         public string AboutServiceName { get; set; }
         public bool AboutServiceStatus { get; set; }
+        public string DataProtect { get; set; }
     }
 }

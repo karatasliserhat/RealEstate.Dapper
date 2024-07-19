@@ -12,6 +12,7 @@
         public string Address { get; set; }
         public string CategoryName { get; set; }
         public string EmployeeName { get; set; }
+        public bool DealOfTheDay { get; set; }
 
 
     }

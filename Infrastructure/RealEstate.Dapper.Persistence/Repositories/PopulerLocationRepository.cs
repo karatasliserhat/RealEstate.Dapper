@@ -21,7 +21,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
             var query = "Insert Into PopulerLocations (CityName,ImageUrl,Status) Values(@cityName, @imageUrl, @status)";
             _dynamicParameters.Add("@cityName", entity.CityName);
             _dynamicParameters.Add("@imageUrl", entity.ImageUrl);
-            _dynamicParameters.Add("@status", entity.Status);
+            _dynamicParameters.Add("@status", true);
 
             await _connection.ExecuteAsync(query, _dynamicParameters);
         }

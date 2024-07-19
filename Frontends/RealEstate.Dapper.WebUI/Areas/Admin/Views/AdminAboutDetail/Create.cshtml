@@ -1,0 +1,35 @@
+﻿@model CreateAboutDetailViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/AdminLayaout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <form asp-action="Create" method="post">
+                <div class="bg-light rounded h-100 p-4">
+                    <h6 class="mb-4">Hakkımda Ekleme Sayfası</h6>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.Title">
+                        <label>Başlık</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.SubTitle">
+                        <label>Alt Başlık</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" asp-for="@Model.Description" rows="5"></textarea>
+                        <label>Açıklama</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" asp-for="@Model.Description2" rows="5"></textarea>
+                        <label>Açıklama 2</label>
+                    </div>
+                    <input type="submit" class="btn btn-success" name="name" value="Kaydet" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -13,5 +13,7 @@
         public string CategoryName { get; set; }
         public string EmployeeName { get; set; }
         public string DataProtect { get; set; }
+        public bool DealOfTheDay { get; set; }
+
     }
 }

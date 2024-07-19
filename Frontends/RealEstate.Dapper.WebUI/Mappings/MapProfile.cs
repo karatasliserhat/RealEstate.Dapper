@@ -9,6 +9,9 @@ namespace RealEstate.Dapper.WebUI.Mappings
         {
             CreateMap<ResultCategoryViewModel, UpdateCategoryViewModel>().ReverseMap();
             CreateMap<ResultProductViewModel, UpdateProductViewModel>().ReverseMap();
+            CreateMap<ResultAboutDetailViewModel, UpdateAboutDetailViewModel>().ReverseMap();
+            CreateMap<ResultAboutServiceViewModel, UpdateAboutServiceViewModel>().ReverseMap();
+            CreateMap<ResultPopulerLocationViewModel, UpdatePopulerLocationViewModel>().ReverseMap();
         }
     }
 }

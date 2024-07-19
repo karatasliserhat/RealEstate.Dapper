@@ -2,7 +2,7 @@
 
 namespace RealEstate.Dapper.Shared.Abstract.IApiReadService
 {
-    public interface IPopulerLocationReadApiService:IBaseReadApiService<ResultPopulerLocation>
+    public interface IPopulerLocationReadApiService:IBaseReadApiService<ResultPopulerLocationViewModel>
     {
     }
 }

@@ -4,11 +4,11 @@ using System.Reflection;
 
 namespace RealEstate.Dapper.Persistence.Context
 {
-    public class DapperContext:DbContext
+    public class DapperContext : DbContext
     {
-        public DapperContext(DbContextOptions<DapperContext> options):base(options)
+        public DapperContext(DbContextOptions<DapperContext> options) : base(options)
         {
-           
+
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
@@ -26,6 +26,8 @@ namespace RealEstate.Dapper.Persistence.Context
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<ToDoList> ToDoLists { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

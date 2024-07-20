@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RealEstate.Dapper.Persistence.Context;
 
@@ -11,9 +12,11 @@ using RealEstate.Dapper.Persistence.Context;
 namespace RealEstate.Dapper.Persistence.Migrations
 {
     [DbContext(typeof(DapperContext))]
-    partial class DapperContextModelSnapshot : ModelSnapshot
+    [Migration("20240720162920_mig15")]
+    partial class mig15
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,8 +111,8 @@ namespace RealEstate.Dapper.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
 
-                    b.Property<string>("RoleName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("RoleName")
+                        .HasColumnType("int");
 
                     b.HasKey("RoleId");
 

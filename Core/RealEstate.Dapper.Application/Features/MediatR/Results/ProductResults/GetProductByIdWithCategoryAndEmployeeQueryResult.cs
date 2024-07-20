@@ -13,6 +13,7 @@
         public string CategoryName { get; set; }
         public string EmployeeName { get; set; }
         public bool DealOfTheDay { get; set; }
+        public DateTime CreatedDate { get; set; }
 
     }
 }

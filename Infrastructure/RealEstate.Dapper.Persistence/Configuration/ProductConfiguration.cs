@@ -9,6 +9,7 @@ namespace RealEstate.Dapper.Domain.Configuration
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.CreatedDate).HasColumnType("DateTime");
             builder.HasOne(x => x.Category).WithMany(x => x.Products).HasForeignKey(x => x.CategoryId);
             builder.HasOne(x => x.Employee).WithMany(x => x.Products).HasForeignKey(x => x.EmployeeId);
             builder.HasMany(x => x.ProductDetails).WithOne(x => x.Product).HasForeignKey(x => x.ProductId);

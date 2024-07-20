@@ -11,5 +11,7 @@
         public string TestimonialBaseUrl { get ; set;  }
         public string EmployeeBaseUrl { get; set; }
         public string StatisticsBaseUrl { get; set; }
+        public string ContactBaseUrl { get; set; }
+        public string ToDoListBaseUrl { get; set; }
     }
 }

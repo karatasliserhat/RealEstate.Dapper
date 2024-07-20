@@ -36,6 +36,8 @@ builder.Services.AddScoped<IPopulerLocationRepository, PopulerLocationRepository
 builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IStatisticsRepository, StatisticsRepository>();
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IToDoListRepository, ToDolistRepository>();
 
 var app = builder.Build();
 

@@ -14,6 +14,7 @@
         public int CategoryId { get; set; }
         public int EmployeeId { get; set; }
         public bool DealOfTheDay { get; set; }
+        public DateTime CreatedDate { get; set; }
 
     }
 }

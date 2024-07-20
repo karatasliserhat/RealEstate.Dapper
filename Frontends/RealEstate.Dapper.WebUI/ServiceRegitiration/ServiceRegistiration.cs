@@ -121,7 +121,25 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
                 });
             });
 
+            Services.AddHttpClient<IContactCommandApiService, ContactCommandApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.ContactBaseUrl.ToString());
+            });
 
+            Services.AddHttpClient<IContactReadApiService, ContactReadApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.ContactBaseUrl.ToString());
+            });
+
+            Services.AddHttpClient<IToDoListCommandApiService, ToDoListCommandApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.ToDoListBaseUrl.ToString());
+            });
+
+            Services.AddHttpClient<IToDoListReadApiService, ToDoListReadApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.ToDoListBaseUrl.ToString());
+            });
         }
     }
 }

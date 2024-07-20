@@ -8,7 +8,7 @@ namespace RealEstate.Dapper.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<Contact> builder)
         {
-            builder.Property(x => x.SendDate).HasColumnType("Date");
+            builder.Property(x => x.SendDate).HasColumnType("DateTime");
         }
     }
 }

@@ -25,6 +25,7 @@ namespace RealEstate.Dapper.Persistence.Context
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<ToDoList> ToDoLists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

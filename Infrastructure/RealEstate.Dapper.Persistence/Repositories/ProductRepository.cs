@@ -19,7 +19,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task CreateAsync(Product entity)
         {
-            var query = "Insert Into Products (Title,Price,CoverImage,City,District,Address,Description,Type,CategoryId,EmployeeId,DealOfTheDay) Values(@title,@price,@coverImage,@city,@district,@address,@description,@type,@categoryId,@employeeId,@dealOfTheDay)";
+            var query = "Insert Into Products (Title,Price,CoverImage,City,District,Address,Description,Type,CategoryId,EmployeeId,DealOfTheDay,CreatedDate) Values(@title,@price,@coverImage,@city,@district,@address,@description,@type,@categoryId,@employeeId,@dealOfTheDay,@createdDate)";
             _dynamicParameters.Add("@title", entity.Title);
             _dynamicParameters.Add("@price", entity.Price);
             _dynamicParameters.Add("@coverImage", entity.CoverImage);
@@ -31,6 +31,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
             _dynamicParameters.Add("@categoryId", entity.CategoryId);
             _dynamicParameters.Add("@employeeId", entity.EmployeeId);
             _dynamicParameters.Add("@dealOfTheDay", entity.DealOfTheDay);
+            _dynamicParameters.Add("@createdDate", entity.CreatedDate);
             await _connection.ExecuteAsync(query, _dynamicParameters);
         }
 
@@ -63,7 +64,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task<GetProductByIdWithCategoryAndEmployeeQueryResult> GetByIdWithCategoryAndEmployeeAsync(int id)
         {
-            var query = $"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,CategoryName,EmployeeName From Products Inner Join Categories on Products.CategoryId=Categories.Id Inner Join Employees on Products.EmployeeId=Employees.Id where Products.Id={id}";
+            var query = $"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay, Products.CreatedDate,CategoryName,EmployeeName From Products Inner Join Categories on Products.CategoryId=Categories.Id Inner Join Employees on Products.EmployeeId=Employees.Id where Products.Id={id}";
             var values = await _connection.QueryAsync<GetProductByIdWithCategoryAndEmployeeQueryResult>(query, _dynamicParameters);
             return values.FirstOrDefault();
 
@@ -77,9 +78,16 @@ namespace RealEstate.Dapper.Persistence.Repositories
             return values.ToList();
         }
 
+        public async Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListLastProductAsync(int HowProductCount)
+        {
+            var query = ($"Select Top({HowProductCount}) Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id Order By Products.Id Desc");
+            var values = await _connection.QueryAsync<GetListProductWithCategoryAndEmployeeQueryResult>(query);
+            return values.ToList();
+        }
+
         public async Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListProductWithEmployeeAndCategory()
         {
-            var query = "Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id";
+            var query = "Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id";
             var values = await _connection.QueryAsync<GetListProductWithCategoryAndEmployeeQueryResult>(query);
             return values.ToList();
         }

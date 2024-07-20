@@ -2,7 +2,7 @@
 
 namespace RealEstate.Dapper.Application.Features.MediatR.Commands
 {
-    public class CreateProductCommand:IRequest
+    public class CreateProductCommand : IRequest
     {
         public string Title { get; set; }
         public decimal Price { get; set; }
@@ -15,6 +15,7 @@ namespace RealEstate.Dapper.Application.Features.MediatR.Commands
         public int CategoryId { get; set; }
         public int EmployeeId { get; set; }
         public bool DealOfTheDay { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Parse(DateTime.Now.ToShortDateString());
 
     }
 }

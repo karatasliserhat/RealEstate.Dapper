@@ -158,8 +158,8 @@ namespace RealEstate.Dapper.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("SendDate")
-                        .HasColumnType("Date");
+                    b.Property<DateTime>("SendDate")
+                        .HasColumnType("DateTime");
 
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
@@ -260,6 +260,9 @@ namespace RealEstate.Dapper.Persistence.Migrations
 
                     b.Property<string>("CoverImage")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("DateTime");
 
                     b.Property<bool>("DealOfTheDay")
                         .HasColumnType("bit");
@@ -434,6 +437,25 @@ namespace RealEstate.Dapper.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.ToDoList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ToDoLists");
                 });
 
             modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.Product", b =>

@@ -32,6 +32,11 @@ namespace RealEstate.Dapper.WebAPI.Controllers
             await _mediator.Send(new DealOfTheDayTrueCommand(id));
             return Ok("Günün Fırsatı Aktif Edildi");
         }
+        [HttpGet("[Action]/{HowProductCount}")]
+        public async Task<IActionResult> GetListLastProduct(int HowProductCount)
+        {
+            return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndEmployeeQuery(HowProductCount)));
+        }
         [HttpGet("[Action]/{id}")]
         public async Task<IActionResult> DealOfTheDayFalse(int id)
         {

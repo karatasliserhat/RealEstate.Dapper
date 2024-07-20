@@ -49,7 +49,14 @@ namespace RealEstate.Dapper.Application.Mappings
             CreateMap<Employee, CreateEmployeeCommand>().ReverseMap();
             CreateMap<Employee, UpdateEmployeeCommand>().ReverseMap();
 
+            CreateMap<Contact, CreateContactCommand>().ReverseMap();
+            CreateMap<Contact, GetContactByIdQueryResult>().ReverseMap();
+            CreateMap<Contact, GetContactQueryResult>().ReverseMap();
 
+            CreateMap<ToDoList, GetToDoListQueryResult>().ReverseMap();
+            CreateMap<ToDoList, GetToDoListByIdQueryResult>().ReverseMap();
+            CreateMap<ToDoList, CreateToDoListCommand>().ReverseMap();
+            CreateMap<ToDoList, UpdateToDoListCommand>().ReverseMap();
         }
     }
 }

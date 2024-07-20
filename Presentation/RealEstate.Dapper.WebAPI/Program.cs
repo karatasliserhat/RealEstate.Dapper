@@ -4,6 +4,7 @@ using RealEstate.Dapper.Application.Interface;
 using RealEstate.Dapper.Application.Service;
 using RealEstate.Dapper.Persistence.Context;
 using RealEstate.Dapper.Persistence.Repositories;
+using RealEstate.Dapper.WebAPI.Hubs;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.WithOrigins("https://localhost:7029").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+    });
+});
+builder.Services.AddSignalR();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -48,10 +59,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<SignalRHub>("/signalrhub");
 app.Run();

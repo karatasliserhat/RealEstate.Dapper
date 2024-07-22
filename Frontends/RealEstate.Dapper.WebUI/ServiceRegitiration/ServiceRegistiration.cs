@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using RealEstate.Dapper.Shared.Abstract.IApiCommandService;
 using RealEstate.Dapper.Shared.Abstract.IApiReadService;
 using RealEstate.Dapper.Shared.Abstract.IApiReadService.IProductReadService;
@@ -16,6 +17,19 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
     {
         public static void AddServiceRegister(this IServiceCollection Services, IConfiguration configuration)
         {
+
+            Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, conf =>
+            {
+                conf.LoginPath = new PathString("/Account/Login");
+                conf.LogoutPath = new PathString("/Account/Logout");
+                conf.AccessDeniedPath = new PathString("/Pages/AccessDenied");
+                conf.Cookie.Name = "RealEStateCookie";
+                conf.Cookie.SameSite = SameSiteMode.Strict;
+                conf.Cookie.HttpOnly = true;
+                conf.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+
+            });
+
             Services.AddDataProtection();
             Services.AddAutoMapper(Assembly.GetExecutingAssembly());
             Services.Configure<ApiSettings>(configuration.GetSection(nameof(ApiSettings)));
@@ -139,6 +153,10 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             Services.AddHttpClient<IToDoListReadApiService, ToDoListReadApiService>(opt =>
             {
                 opt.BaseAddress = new Uri(apiUrl.ToDoListBaseUrl.ToString());
+            });
+            Services.AddHttpClient<IAccountCommandApiService, AccountCommandApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.AccountBaseUrl.ToString());
             });
         }
     }

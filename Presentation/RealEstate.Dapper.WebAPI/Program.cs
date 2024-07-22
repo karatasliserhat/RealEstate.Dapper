@@ -1,11 +1,14 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using RealEstate.Dapper.Application.Interface;
 using RealEstate.Dapper.Application.Service;
 using RealEstate.Dapper.Persistence.Context;
 using RealEstate.Dapper.Persistence.Repositories;
 using RealEstate.Dapper.WebAPI.Hubs;
+using RealEstate.Dapper.WebAPI.Tools;
 using System.Data;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,8 +39,19 @@ builder.Services.AddScoped<IDbConnection>(sp =>
     return new SqlConnection(connection);
 });
 
-builder.Services.AddApplicationService();
+builder.Services.Configure<JwtTokenModel>(builder.Configuration.GetSection("JwtTokenModel"));
 
+builder.Services.AddScoped<IJwtTokenModel>(conf =>
+{
+    return conf.GetRequiredService<IOptions<JwtTokenModel>>().Value;
+});
+
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+
+builder.Services.AddApplicationService();
+builder.Services.AddScoped<JwtTokenGenerator>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IAboutDetailRepository, AboutDetailRepository>();
@@ -49,6 +63,7 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IStatisticsRepository, StatisticsRepository>();
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IToDoListRepository, ToDolistRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
 var app = builder.Build();
 

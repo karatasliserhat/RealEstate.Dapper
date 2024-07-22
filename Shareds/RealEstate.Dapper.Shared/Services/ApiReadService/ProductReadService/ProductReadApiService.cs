@@ -17,6 +17,11 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService.ProductReadService
             return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>($"GetListLastProduct/{HowProductCount}");
         }
 
+        public async Task<List<ResultProductWithCategoryAndEmployee>> GetListProductByUserAsync(int UserId)
+        {
+            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>($"GetListProductByUser/{UserId}");
+        }
+
         public async Task<List<ResultProductWithCategoryAndEmployee>> GetListProductWithCategoryAndEmployeeAsync()
         {
             return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>("");

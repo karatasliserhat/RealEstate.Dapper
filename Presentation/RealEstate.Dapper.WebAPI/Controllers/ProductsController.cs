@@ -26,6 +26,11 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediator.Send(new GetProductByIdQuery(id)));
         }
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetListProductByUser(int id)
+        {
+            return Ok(await _mediator.Send(new GetListProductByUserQuery(id)));
+        }
         [HttpGet("[Action]/{id}")]
         public async Task<IActionResult> DealOfTheDayTrue(int id)
         {

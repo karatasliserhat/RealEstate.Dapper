@@ -13,5 +13,6 @@
         public string StatisticsBaseUrl { get; set; }
         public string ContactBaseUrl { get; set; }
         public string ToDoListBaseUrl { get; set; }
+        public string AccountBaseUrl { get; set; }
     }
 }

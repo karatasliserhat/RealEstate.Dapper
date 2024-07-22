@@ -22,6 +22,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -32,4 +33,9 @@ app.MapControllerRoute(
 
     name: "areas",
       pattern: "{area:exists}/{controller=AdminDefault}/{action=Index}/{id?}");
+app.MapControllerRoute(
+
+    name: "areas",
+      pattern: "{area:exists}/{controller=EstateAgentDefault}/{action=Index}/{id?}");
+
 app.Run();

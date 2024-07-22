@@ -1,6 +1,6 @@
 ﻿namespace RealEstate.Dapper.Application.Features.MediatR.Results
 {
-    public class GetListProductWithCategoryAndEmployeeQueryResult
+    public class GetListProductByUserQueryResult
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -14,6 +14,5 @@
         public string EmployeeName { get; set; }
         public bool DealOfTheDay { get; set; }
         public DateTime CreatedDate { get; set; }
-
     }
 }

@@ -16,6 +16,7 @@ namespace RealEstate.Dapper.Application.Features.MediatR.Commands
         public int EmployeeId { get; set; }
         public bool DealOfTheDay { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Parse(DateTime.Now.ToShortDateString());
+        public bool Status { get; set; }
 
     }
 }

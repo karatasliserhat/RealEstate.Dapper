@@ -19,7 +19,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task CreateAsync(Product entity)
         {
-            var query = "Insert Into Products (Title,Price,CoverImage,City,District,Address,Description,Type,CategoryId,EmployeeId,DealOfTheDay,CreatedDate) Values(@title,@price,@coverImage,@city,@district,@address,@description,@type,@categoryId,@employeeId,@dealOfTheDay,@createdDate)";
+            var query = "Insert Into Products (Title,Price,CoverImage,City,District,Address,Description,Type,CategoryId,EmployeeId,DealOfTheDay,CreatedDate, Status) Values(@title,@price,@coverImage,@city,@district,@address,@description,@type,@categoryId,@employeeId,@dealOfTheDay,@createdDate,@status)";
             _dynamicParameters.Add("@title", entity.Title);
             _dynamicParameters.Add("@price", entity.Price);
             _dynamicParameters.Add("@coverImage", entity.CoverImage);
@@ -32,6 +32,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
             _dynamicParameters.Add("@employeeId", entity.EmployeeId);
             _dynamicParameters.Add("@dealOfTheDay", entity.DealOfTheDay);
             _dynamicParameters.Add("@createdDate", entity.CreatedDate);
+            _dynamicParameters.Add("@status", true);
             await _connection.ExecuteAsync(query, _dynamicParameters);
         }
 

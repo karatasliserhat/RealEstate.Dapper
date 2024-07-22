@@ -15,6 +15,7 @@
         public int EmployeeId { get; set; }
         public bool DealOfTheDay { get; set; }
         public DateTime CreatedDate { get; set; }
+        public bool Status { get; set; }
 
     }
 }

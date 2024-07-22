@@ -3,10 +3,12 @@ using Microsoft.Extensions.Options;
 using RealEstate.Dapper.Shared.Abstract.IApiCommandService;
 using RealEstate.Dapper.Shared.Abstract.IApiReadService;
 using RealEstate.Dapper.Shared.Abstract.IApiReadService.IProductReadService;
+using RealEstate.Dapper.Shared.Abstract.IUserServices;
 using RealEstate.Dapper.Shared.Services.ApiCommandService;
 using RealEstate.Dapper.Shared.Services.ApiReadService;
 using RealEstate.Dapper.Shared.Services.ApiReadService.AboutDetailReadService;
 using RealEstate.Dapper.Shared.Services.ApiReadService.ProductReadService;
+using RealEstate.Dapper.Shared.Services.UserServices;
 using RealEstate.Dapper.Shared.Settings;
 using RealEstate.Dapper.WebUI.Tools;
 using System.Reflection;
@@ -30,6 +32,9 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
 
             });
 
+            Services.AddScoped<IUserService, UserService>();
+
+            Services.AddHttpContextAccessor();
             Services.AddDataProtection();
             Services.AddAutoMapper(Assembly.GetExecutingAssembly());
             Services.Configure<ApiSettings>(configuration.GetSection(nameof(ApiSettings)));

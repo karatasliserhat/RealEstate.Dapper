@@ -1,21 +1,17 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/AdminLayaout/Index.cshtml";
+    Layout = "~/Areas/EstateAgent/Views/EstateAgentLayout/Index.cshtml";
 }
-
 <!-- Sale & Revenue Start -->
-@await Component.InvokeAsync("_AdminDashboardStatisticRevenueComponentPartial")
+@await Component.InvokeAsync("_EstateAgentStatisticRevenueComponentPartial")
 <!-- Sale & Revenue End -->
-
 <!-- Sales Chart Start -->
 @await Component.InvokeAsync("_AdminDashboardStatisticsChartComponentPartial")
 <!-- Sales Chart End -->
-
 <!-- Recent Sales Start -->
 @await Component.InvokeAsync("_AdminDashboardStatisticsRecentSalesComponentPartial")
 <!-- Recent Sales End -->
-
 <!-- Widgets Start -->
 @await Component.InvokeAsync("_AdminDashboardStatisticsWidgetsComponentPartial")
 <!-- Widgets End -->

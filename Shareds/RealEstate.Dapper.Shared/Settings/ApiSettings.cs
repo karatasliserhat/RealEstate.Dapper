@@ -14,5 +14,6 @@
         public string ContactBaseUrl { get; set; }
         public string ToDoListBaseUrl { get; set; }
         public string AccountBaseUrl { get; set; }
+        public string EstateAgentBaseUrl { get; set; }
     }
 }

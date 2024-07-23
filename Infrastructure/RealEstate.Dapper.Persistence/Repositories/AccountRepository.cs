@@ -29,9 +29,10 @@ namespace RealEstate.Dapper.Persistence.Repositories
                 var result2 = await _connection.QueryFirstOrDefaultAsync<LoginUserQueryResult>(query2);
                 result.RoleName = result2.RoleName;
                 result.IsExist = true;
+                return result;
             }
 
-            return result;
+            return null;
         }
     }
 }

@@ -1,0 +1,59 @@
+﻿@model List<ResultProductWithCategoryAndEmployee>
+@{
+    int Count = 0;
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Son @ViewBag.LastProductCount İlan</h6>
+            <a asp-controller="AdminProduct" asp-action="Index">Tümünü Göster</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th>#</th>
+                        <th>İlan Tarihi</th>
+                        <th scope="col">İlan Başlığı</th>
+                        <th scope="col">Şehir</th>
+                        <th scope="col">İlçe</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Fiyat</th>
+                        <th scope="col">İlan Tipi</th>
+                        <th scope="col">Adres</th>
+                        <th scope="col">Personel</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count > 0)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            Count++;
+                            <tr>
+                                <td>@Count</td>
+                                <td>@item.CreatedDate.ToShortDateString()</td>
+                                <td>@item.Title</td>
+                                <td>@item.City</td>
+                                <td>@item.District</td>
+                                <td>@item.CategoryName</td>
+                                <td>@(String.Format("₺{0:N}",item.Price))</td>
+                                <td>@item.Type</td>
+                                <td>@item.Address</td>
+                                <td>@item.EmployeeName</td>
+                                <td><a class="btn btn-sm btn-primary" href="">İlanı Gör</a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10">Kategoriye ait kayıtlı veri yok</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

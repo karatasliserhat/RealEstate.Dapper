@@ -25,13 +25,13 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         public async Task<IActionResult> UserLogin(LoginUserModel loginUserModel)
         {
             var values = await _mediator.Send(new LoginUserQuery(loginUserModel));
-            if (values != null)
+            if (values is not null)
             {
                 var tokenResponse = _jwtGenerator.GeneratorToken(_mapper.Map<GetCheckUserModel>(values));
 
                 return Ok(tokenResponse);
             }
-            return Ok("Başarısız Giriş");
+            return NotFound("Başarısız Giriş");
         }
     }
 }

@@ -16,17 +16,20 @@ namespace RealEstate.Dapper.Shared.Services.ApiCommandService
 
         public async Task<TokenViewModel> UserLoginAsync(LoginUserModel loginUserModel)
         {
-            var content = new StringContent(JsonSerializer.Serialize(loginUserModel), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(string.Empty, content);
-            if (response.IsSuccessStatusCode)
-            {
-                var jsonConvert = await response.Content.ReadAsStringAsync();
-                var value = JsonSerializer.Deserialize<TokenViewModel>(jsonConvert, new JsonSerializerOptions
+            
+                var content = new StringContent(JsonSerializer.Serialize(loginUserModel), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync(string.Empty, content);
+                if (response.IsSuccessStatusCode)
                 {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                });
-                return value;
-            }
+                    var jsonConvert = await response.Content.ReadAsStringAsync();
+                    var value = JsonSerializer.Deserialize<TokenViewModel>(jsonConvert, new JsonSerializerOptions
+                    {
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                    });
+                    return value;
+                }
+            
+            
             return null;
         }
     }

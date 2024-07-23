@@ -47,7 +47,7 @@ namespace RealEstate.Dapper.WebUI.Controllers
                     return RedirectToAction("Index", "EstateAgentMyAds", new { area = "EstateAgent" });
                 }
             }
-            return View();
+            return View(new LoginUserModel());
         }
     }
 }

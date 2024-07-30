@@ -21,6 +21,11 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediatR.Send(new GetProductCountQuery()));
         }
+        [HttpGet("[Action]")]
+        public async Task<IActionResult> GetLastFiveCountCity()
+        {
+            return Ok(await _mediatR.Send(new GetLastFiveCityCountQuery()));
+        }
         [HttpGet("[Action]/{id}")]
         public async Task<IActionResult> ProductCountByEmployeeId(int id)
         {

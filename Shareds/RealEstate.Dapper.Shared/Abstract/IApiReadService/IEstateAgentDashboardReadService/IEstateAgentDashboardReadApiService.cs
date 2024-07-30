@@ -4,5 +4,6 @@
     {
         public Task<GetResultViewCountModel> GetResultViewCount(string Action, int id);
         public Task<GetResultViewCountModel> GetResultViewCount(string Action);
+        Task<List<GetResultViewCountModel>> GetResultViewList(string Action);
     }
 }

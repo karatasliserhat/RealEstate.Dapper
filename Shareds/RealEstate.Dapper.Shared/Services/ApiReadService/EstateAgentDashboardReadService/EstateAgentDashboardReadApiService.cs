@@ -21,5 +21,9 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService
         {
             return await _httpClient.GetFromJsonAsync<GetResultViewCountModel>($"{Action}");
         }
+        public async Task<List<GetResultViewCountModel>> GetResultViewList(string Action)
+        {
+            return await _httpClient.GetFromJsonAsync<List<GetResultViewCountModel>>($"{Action}");
+        }
     }
 }

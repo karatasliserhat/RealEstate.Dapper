@@ -1,11 +1,7 @@
 ﻿using Dapper;
+using RealEstate.Dapper.Application.Features.MediatR.Results;
 using RealEstate.Dapper.Application.Interface;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RealEstate.Dapper.Persistence.Repositories
 {
@@ -16,6 +12,13 @@ namespace RealEstate.Dapper.Persistence.Repositories
         public EstateAgentDashboardRepository(IDbConnection connection)
         {
             _connection = connection;
+        }
+
+        public async Task<List<GetLastFiveCityCountQueryResult>> GetLastFiveCountCity()
+        {
+            var query = "Select City, Count(*) as 'CityCount' From Products Group By City Order By CityCount Desc";
+            var values = await _connection.QueryAsync<GetLastFiveCityCountQueryResult>(query);
+            return values.ToList();
         }
 
         public async Task<int> ProductCountByEmployeeIdAsync(int id)

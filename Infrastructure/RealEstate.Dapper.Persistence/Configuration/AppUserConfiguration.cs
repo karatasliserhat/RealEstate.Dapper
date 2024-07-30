@@ -10,6 +10,8 @@ namespace RealEstate.Dapper.Persistence.Configuration
         {
             builder.HasKey(x => x.UserId);
             builder.HasOne(x => x.AppRole).WithMany(x => x.AppUsers).HasForeignKey(x => x.RoleId);
+            builder.HasMany(x => x.SenderMessages).WithOne(x => x.SenderUser).HasForeignKey(x => x.Sender).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.ReceiveMessages).WithOne(x => x.ReceiveUser).HasForeignKey(x => x.Receive).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

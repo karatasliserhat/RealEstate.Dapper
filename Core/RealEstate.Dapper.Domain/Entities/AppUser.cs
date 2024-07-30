@@ -9,5 +9,10 @@
         public string Email { get; set; }
         public int RoleId { get; set; }
         public AppRole AppRole { get; set; }
+        public string ImageUrl { get; set; }
+        public virtual List<Message> SenderMessages { get; set; }
+        public virtual List<Message> ReceiveMessages { get; set; }
+
+
     }
 }

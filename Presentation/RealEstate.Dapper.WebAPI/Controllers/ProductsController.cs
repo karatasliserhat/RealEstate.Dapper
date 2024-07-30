@@ -42,6 +42,11 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         {
             return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndEmployeeQuery(HowProductCount)));
         }
+        [HttpGet("[Action]/{HowProductCount}/{UserId}")]
+        public async Task<IActionResult> GetListLastProduct(int HowProductCount, int UserId)
+        {
+            return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndEmployeeByUserIdQuery(UserId, HowProductCount)));
+        }
         [HttpGet("[Action]/{id}")]
         public async Task<IActionResult> DealOfTheDayFalse(int id)
         {

@@ -9,6 +9,7 @@ namespace RealEstate.Dapper.Application.Interface
         Task<GetProductByIdWithCategoryAndEmployeeQueryResult> GetByIdWithCategoryAndEmployeeAsync(int id);
 
         Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListLastProductAsync(int HowProductCount);
+        Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListLastProductAsync(int HowProductCount, int UserId);
         Task DealOfTheDayTrue(int id);
         Task DealOfTheDayFalse(int id);
 

@@ -1,0 +1,93 @@
+﻿@model List<ResultCityCountViewModel>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Şehir Sayı Grafiği</h6>
+                </div>
+                <canvas id="myChart" style="width:100%;max-width:500px"></canvas>
+                @{
+                    var xValues = new List<string>();
+                    var yValues = new List<int>();
+
+
+
+                    @foreach (var item in Model)
+                    {
+                        xValues.Add(item.City);
+                        yValues.Add(item.CityCount);
+                    }
+                }
+                <script>
+                    const xValues = @Html.Raw(Json.Serialize(xValues));
+                    const yValues = @Html.Raw(Json.Serialize(yValues));
+                const barColors = ["rgb(64, 46, 122)", "rgb(76, 59, 207)", "rgb(75, 112, 245)", "rgb(61, 194, 236)", "rgb(202, 244, 255)"];
+
+                    new Chart("myChart", {
+                        type: "bar",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                backgroundColor: barColors,
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            legend: { display: false },
+                            title: {
+                                display: true
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-xl-6">
+
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Şehir Sayı Grafiği</h6>
+                </div>
+                <canvas id="myChart1" style="width:100%;max-width:500px"></canvas>
+                @{
+                    var xValues1 = new List<string>();
+                    var yValues1 = new List<int>();
+
+
+
+                    @foreach (var item in Model)
+                    {
+                        xValues1.Add(item.City);
+                        yValues1.Add(item.CityCount);
+                    }
+                }
+                <script>
+    const xValues1 = @Html.Raw(Json.Serialize(xValues1));
+    const yValues1 = @Html.Raw(Json.Serialize(yValues1));
+const barColors1 = ["rgb(64, 46, 122)", "rgb(76, 59, 207)", "rgb(75, 112, 245)", "rgb(61, 194, 236)", "rgb(202, 244, 255)"];
+
+    new Chart("myChart1", {
+        type: "bar",
+        data: {
+            labels: xValues1,
+            datasets: [{
+                backgroundColor: barColors1,
+                data: yValues1
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true
+            }
+        }
+    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

@@ -65,6 +65,7 @@ builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IToDoListRepository, ToDolistRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IEstateAgentDashboardRepository, EstateAgentDashboardRepository>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 
 var app = builder.Build();
 

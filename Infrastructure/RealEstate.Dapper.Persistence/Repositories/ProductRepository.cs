@@ -86,6 +86,13 @@ namespace RealEstate.Dapper.Persistence.Repositories
             return values.ToList();
         }
 
+        public async Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListLastProductAsync(int HowProductCount, int UserId)
+        {
+            var query = ($"Select Top({HowProductCount}) Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id Where EmployeeId={UserId} Order By Products.Id Desc");
+            var values = await _connection.QueryAsync<GetListProductWithCategoryAndEmployeeQueryResult>(query);
+            return values.ToList();
+        }
+
         public async Task<List<GetListProductByUserQueryResult>> GetListProductByUserAsync(int employeeId)
         {
             var query = $"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id Where Products.EmployeeId={employeeId}";

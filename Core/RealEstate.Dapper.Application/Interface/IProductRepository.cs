@@ -3,7 +3,7 @@ using RealEstate.Dapper.Domain.Entities;
 
 namespace RealEstate.Dapper.Application.Interface
 {
-    public interface IProductRepository:IGenericRepository<Product>
+    public interface IProductRepository : IGenericRepository<Product>
     {
         Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListProductWithEmployeeAndCategory();
         Task<GetProductByIdWithCategoryAndEmployeeQueryResult> GetByIdWithCategoryAndEmployeeAsync(int id);
@@ -13,6 +13,6 @@ namespace RealEstate.Dapper.Application.Interface
         Task DealOfTheDayTrue(int id);
         Task DealOfTheDayFalse(int id);
 
-        Task<List<GetListProductByUserQueryResult>> GetListProductByUserAsync(int employeeId);
+        Task<List<GetListProductByUserQueryResult>> GetListProductByUserAndTrueOrFalseAsync(int employeeId, bool status);
     }
 }

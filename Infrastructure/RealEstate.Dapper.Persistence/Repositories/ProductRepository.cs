@@ -93,9 +93,10 @@ namespace RealEstate.Dapper.Persistence.Repositories
             return values.ToList();
         }
 
-        public async Task<List<GetListProductByUserQueryResult>> GetListProductByUserAsync(int employeeId)
+        public async Task<List<GetListProductByUserQueryResult>> GetListProductByUserAndTrueOrFalseAsync(int employeeId, bool status)
         {
-            var query = $"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id Where Products.EmployeeId={employeeId}";
+            var status1 = status == true ? 1 : 0;
+            var query = $"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,Products.Status,CategoryName,EmployeeName From Products inner join Categories on Products.CategoryId=Categories.Id inner join Employees on Products.EmployeeId=Employees.Id Where Products.EmployeeId={employeeId} and Products.Status={status1}";
             var values = await _connection.QueryAsync<GetListProductByUserQueryResult>(query);
             return values.ToList();
         }

@@ -16,7 +16,7 @@ namespace RealEstate.Dapper.Application.Features.MediatR.Handlers.ProductHandler
 
         public async Task<List<GetListProductByUserQueryResult>> Handle(GetListProductByUserQuery request, CancellationToken cancellationToken)
         {
-            return await _productRepository.GetListProductByUserAsync(request.EmployeeId);
+            return await _productRepository.GetListProductByUserAndTrueOrFalseAsync(request.EmployeeId, request.Status);
         }
     }
 }

@@ -1,0 +1,64 @@
+﻿@model List<ResultProductAndDetailListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayoutTwo/UILayoutTwo.cshtml";
+}
+
+<section class="locations-1" id="locations">
+    <div class="locations py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="row">
+                @if (Model.Count > 0)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 listing-img mt-5 pt-md-2">
+                            <a asp-controller="Advert" asp-action="PropertyAdvert" asp-route-dataid="@item.DataProtect">
+                                <div class="box16">
+                                    <div class="rentext-listing-category"><span>@item.Type</span></div>
+                                    <img class="img-fluid" style="height:250px;" src="@item.CoverImage" alt="">
+                                    <div class="box-content">
+                                        <h3 class="title">@(String.Format("₺ {0:N}", item.Price))</h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="listing-details blog-details align-self">
+                                <h4 class="user_title agent">
+                                    <a asp-controller="Advert" asp-action="PropertyAdvert" asp-route-dataid="@item.DataProtect">@item.Title</a>
+                                </h4>
+                                <p class="user_position">@(item.Address.Length>30?item.Address.Substring(0,30).Insert(29,"..."):item.Address)</p>
+                                <ul class="mt-3 estate-info">
+                                    <li><span class="fa fa-bed"></span> @item.BedRoomCount Banyo</li>
+                                    <li><span class="fa fa-shower"></span> @item.RoomCount Oda</li>
+                                    <li><span class="fa fa-share-square-o"></span> @item.Size MetreKare</li>
+                                </ul>
+                                <div class="author align-items-center mt-4">
+                                    <a asp-controller="Advert" asp-action="PropertyAdvert" asp-route-dataid="@item.DataProtect" class="comment-img">
+                                        <img src="@item.CoverImage" alt="" class="img-fluid">
+                                    </a>
+                                    <ul class="blog-meta">
+                                        <li>
+                                            <a asp-controller="Advert" asp-action="PropertyAdvert" asp-route-dataid="@item.DataProtect">@item.EmployeeName </a>
+                                        </li>
+                                        <li class="meta-item blog-lesson">
+                                            <span class="meta-value"> Satış Temsilcisi</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-lg-4 col-md-6 listing-img mt-5 pt-md-2">
+                        <p>Sitemizde aktif ilan bulunmamaktadır.</p>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

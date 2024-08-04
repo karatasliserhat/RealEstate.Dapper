@@ -45,6 +45,7 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductViewModel createProductViewModel)
         {
+            createProductViewModel.DealOfTheDay = false;
             var result = await _productCommandApiService.CreateAsync(createProductViewModel);
             if (result.IsSuccessStatusCode)
             {

@@ -1,0 +1,47 @@
+﻿@model CreateProductViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/EstateAgent/Views/EstateAgentLayout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <form asp-action="Create" method="post">
+                <div class="bg-light rounded h-100 p-4">
+                    <h6 class="mb-4">İlan Ekleme Sayfası</h6>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.Title">
+                        <label>İlan Başlığı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.City">
+                        <label>Şehir</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.District">
+                        <label>İlçe</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select asp-for="@Model.CategoryId" class="form-control" asp-items="@ViewBag.CategoryList">
+                        </select>
+                        <label>Kategori</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.Type">
+                        <label>İlan Tipi</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea asp-for="@Model.Address" class="form-control" cols="5" rows="10"></textarea>
+                        <label>Açık Adres</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="@Model.Price">
+                        <label>Fiyatı</label>
+                    </div>
+                    <input type="submit" class="btn btn-success" name="name" value="Kaydet" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

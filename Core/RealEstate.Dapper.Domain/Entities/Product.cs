@@ -19,6 +19,7 @@
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }
         public List<ProductDetail> ProductDetails { get; set; }
+        public List<ProductImage> ProductImages { get; set; }
 
     }
 }

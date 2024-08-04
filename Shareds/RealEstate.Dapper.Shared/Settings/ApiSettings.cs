@@ -16,5 +16,7 @@
         public string AccountBaseUrl { get; set; }
         public string EstateAgentBaseUrl { get; set; }
         public string MessageBaseUrl { get; set; }
+        public string ProductDetailBaseUrl { get; set; }
+        public string ProductImageBaseUrl { get; set; }
     }
 }

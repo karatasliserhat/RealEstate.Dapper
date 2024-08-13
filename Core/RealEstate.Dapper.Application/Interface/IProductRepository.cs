@@ -5,14 +5,14 @@ namespace RealEstate.Dapper.Application.Interface
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListProductWithEmployeeAndCategory();
-        Task<GetProductByIdWithCategoryAndEmployeeQueryResult> GetByIdWithCategoryAndEmployeeAsync(int id);
+        Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListProductWithAppUserAndCategory();
+        Task<GetProductByIdWithCategoryAndAppUserQueryResult> GetByIdWithCategoryAndAppUserAsync(int id);
 
-        Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListLastProductAsync(int HowProductCount);
-        Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> GetListLastProductAsync(int HowProductCount, int UserId);
+        Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListLastProductAsync(int HowProductCount);
+        Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListLastProductAsync(int HowProductCount, int UserId);
         Task DealOfTheDayTrue(int id);
         Task DealOfTheDayFalse(int id);
 
-        Task<List<GetListProductByUserQueryResult>> GetListProductByUserAndTrueOrFalseAsync(int employeeId, bool status);
+        Task<List<GetListProductByUserQueryResult>> GetListProductByUserAndTrueOrFalseAsync(int AppUserId, bool status);
     }
 }

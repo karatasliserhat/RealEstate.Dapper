@@ -12,23 +12,23 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService.ProductReadService
             _httpClient = httpClient;
         }
 
-        public async Task<List<ResultProductWithCategoryAndEmployee>> GetListLastProductAsync(int HowProductCount)
+        public async Task<List<ResultProductWithCategoryAndAppUser>> GetListLastProductAsync(int HowProductCount)
         {
-            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>($"GetListLastProduct/{HowProductCount}");
+            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndAppUser>>($"GetListLastProduct/{HowProductCount}");
         }
-        public async Task<List<ResultProductWithCategoryAndEmployee>> GetListLastProductAsync(int HowProductCount, int UserId)
+        public async Task<List<ResultProductWithCategoryAndAppUser>> GetListLastProductAsync(int HowProductCount, int UserId)
         {
-            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>($"GetListLastProduct/{HowProductCount}/{UserId}");
-        }
-
-        public async Task<List<ResultProductWithCategoryAndEmployee>> GetListProductByUserAsync(int UserId, bool status)
-        {
-            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>($"GetListProductByUserAndTrueOrFalse/{UserId}/{status}");
+            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndAppUser>>($"GetListLastProduct/{HowProductCount}/{UserId}");
         }
 
-        public async Task<List<ResultProductWithCategoryAndEmployee>> GetListProductWithCategoryAndEmployeeAsync()
+        public async Task<List<ResultProductWithCategoryAndAppUser>> GetListProductByUserAsync(int UserId, bool status)
         {
-            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndEmployee>>("");
+            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndAppUser>>($"GetListProductByUserAndTrueOrFalse/{UserId}/{status}");
+        }
+
+        public async Task<List<ResultProductWithCategoryAndAppUser>> GetListProductWithCategoryAndEmployeeAsync()
+        {
+            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndAppUser>>("");
         }
     }
 }

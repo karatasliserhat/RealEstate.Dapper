@@ -16,8 +16,8 @@
         public DateTime CreatedDate { get; set; }
         public bool Status { get; set; }
         public virtual Category Category { get; set; }
-        public int EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+        public int AppUserId { get; set; }
+        public virtual AppUser AppUser { get; set; }
         public List<ProductDetail> ProductDetails { get; set; }
         public List<ProductImage> ProductImages { get; set; }
 

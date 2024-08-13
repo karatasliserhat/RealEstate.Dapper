@@ -136,6 +136,9 @@ namespace RealEstate.Dapper.Persistence.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
@@ -336,6 +339,9 @@ namespace RealEstate.Dapper.Persistence.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -357,9 +363,6 @@ namespace RealEstate.Dapper.Persistence.Migrations
                     b.Property<string>("District")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -374,9 +377,9 @@ namespace RealEstate.Dapper.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("AppUserId");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -598,21 +601,21 @@ namespace RealEstate.Dapper.Persistence.Migrations
 
             modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.Product", b =>
                 {
+                    b.HasOne("RealEstate.Dapper.Domain.Entities.AppUser", "AppUser")
+                        .WithMany("Products")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("RealEstate.Dapper.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RealEstate.Dapper.Domain.Entities.Employee", "Employee")
-                        .WithMany("Products")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("AppUser");
 
                     b.Navigation("Category");
-
-                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.ProductDetail", b =>
@@ -644,17 +647,14 @@ namespace RealEstate.Dapper.Persistence.Migrations
 
             modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.AppUser", b =>
                 {
+                    b.Navigation("Products");
+
                     b.Navigation("ReceiveMessages");
 
                     b.Navigation("SenderMessages");
                 });
 
             modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.Category", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("RealEstate.Dapper.Domain.Entities.Employee", b =>
                 {
                     b.Navigation("Products");
                 });

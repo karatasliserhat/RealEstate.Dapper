@@ -5,7 +5,7 @@ using RealEstate.Dapper.Application.Interface;
 
 namespace RealEstate.Dapper.Application.Features.MediatR.Handlers.ProductHandlers
 {
-    public class GetListLastProductResultQueryHandler : IRequestHandler<GetListLastProductWithCategoryAndEmployeeQuery, List<GetListProductWithCategoryAndEmployeeQueryResult>>
+    public class GetListLastProductResultQueryHandler : IRequestHandler<GetListLastProductWithCategoryAndAppUserQuery, List<GetListProductWithCategoryAndAppUserQueryResult>>
     {
         private readonly IProductRepository _productRepository;
 
@@ -14,7 +14,7 @@ namespace RealEstate.Dapper.Application.Features.MediatR.Handlers.ProductHandler
             _productRepository = productRepository;
         }
 
-        public async Task<List<GetListProductWithCategoryAndEmployeeQueryResult>> Handle(GetListLastProductWithCategoryAndEmployeeQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetListProductWithCategoryAndAppUserQueryResult>> Handle(GetListLastProductWithCategoryAndAppUserQuery request, CancellationToken cancellationToken)
         {
             return await _productRepository.GetListLastProductAsync(request.HowProductCount);
         }

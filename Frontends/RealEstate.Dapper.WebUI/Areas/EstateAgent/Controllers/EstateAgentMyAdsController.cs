@@ -15,9 +15,9 @@ namespace RealEstate.Dapper.WebUI.Areas.EstateAgent.Controllers
     {
         private readonly IProductReadApiService _productReadApiService;
         private readonly IProductCommandApiService _productCommandApiService;
-        private readonly GetEmployeeAndCategorySelectList _employeeAndCategorySelectList;
+        private readonly GetAppUserAndCategorySelectList _employeeAndCategorySelectList;
         private readonly IUserService _userService;
-        public EstateAgentMyAdsController(IProductReadApiService productReadApiService, IUserService userService, IProductCommandApiService productCommandApiService, GetEmployeeAndCategorySelectList employeeAndCategorySelectList)
+        public EstateAgentMyAdsController(IProductReadApiService productReadApiService, IUserService userService, IProductCommandApiService productCommandApiService, GetAppUserAndCategorySelectList employeeAndCategorySelectList)
         {
             _productReadApiService = productReadApiService;
             _userService = userService;
@@ -48,7 +48,7 @@ namespace RealEstate.Dapper.WebUI.Areas.EstateAgent.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateProductViewModel createProductViewModel)
         {
-            createProductViewModel.EmployeeId = int.Parse(_userService.GetUser);
+            createProductViewModel.AppUserId = int.Parse(_userService.GetUser);
             createProductViewModel.DealOfTheDay = false;
             var result = await _productCommandApiService.CreateAsync(createProductViewModel);
             if (result.IsSuccessStatusCode)

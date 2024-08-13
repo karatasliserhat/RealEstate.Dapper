@@ -1,4 +1,4 @@
-﻿@model List<ResultProductWithCategoryAndEmployee>
+﻿@model List<ResultProductWithCategoryAndAppUser>
 @{
     int Count = 0;
 }
@@ -41,7 +41,7 @@
                                 <td>@(String.Format("₺{0:N}",item.Price))</td>
                                 <td>@item.Type</td>
                                 <td>@item.Address</td>
-                                <td>@item.EmployeeName</td>
+                                <td>@item.Name</td>
                                 <td><a class="btn btn-sm btn-primary" href="">İlanı Gör</a></td>
                             </tr>
                         }

@@ -4,25 +4,25 @@ using RealEstate.Dapper.WebUI.Models;
 
 namespace RealEstate.Dapper.WebUI.Tools
 {
-    public class GetEmployeeAndCategorySelectList
+    public class GetAppUserAndCategorySelectList
     {
         private readonly ICategoryReadApiService _categoryReadApiService;
-        private readonly IEmployeeReadApiService _employeeReadApiService;
+        private readonly IAppUserReadApiService _appUserReadApiService;
 
-        public GetEmployeeAndCategorySelectList(ICategoryReadApiService categoryReadApiService, IEmployeeReadApiService employeeReadApiService)
+        public GetAppUserAndCategorySelectList(ICategoryReadApiService categoryReadApiService, IAppUserReadApiService appUserReadApiService)
         {
             _categoryReadApiService = categoryReadApiService;
-            _employeeReadApiService = employeeReadApiService;
+            _appUserReadApiService = appUserReadApiService;
         }
 
-        public async Task<GetEmployeAndCategorySelectViewModel> EmployeeAndCategorySelectList(int categoryId = 0, int employeeId = 0)
+        public async Task<GetAppUserAndCategorySelectViewModel> EmployeeAndCategorySelectList(int categoryId = 0, int appUserId = 0)
         {
             var categoryValues = await _categoryReadApiService.GetListAsync();
             SelectList categorySlectList = categoryId > 0 ? new SelectList(categoryValues, "Id", "CategoryName", categoryId) : new SelectList(categoryValues, "Id", "CategoryName");
 
-            var employeValues = await _employeeReadApiService.GetListAsync();
-            SelectList employeeSelectList = employeeId > 0 ? new SelectList(employeValues, "Id", "EmployeeName", employeeId) : new SelectList(employeValues, "Id", "EmployeeName");
-            return new GetEmployeAndCategorySelectViewModel { CategoryList = categorySlectList, EmployeeList = employeeSelectList };
+            var appUserValues = await _appUserReadApiService.GetListAsync("GetAppUserList");
+            SelectList appUserListSelectList = appUserId > 0 ? new SelectList(appUserValues, "UserId", "Name", appUserId) : new SelectList(appUserValues, "UserId", "Name");
+            return new GetAppUserAndCategorySelectViewModel { CategoryList = categorySlectList, AppUserList = appUserListSelectList };
             //List<SelectListItem> SelectListItem = (from x in categoryValues.ToList()
             //                                 select new SelectListItem
             //                                 {

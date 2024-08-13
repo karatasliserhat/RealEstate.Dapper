@@ -68,6 +68,7 @@ builder.Services.AddScoped<IEstateAgentDashboardRepository, EstateAgentDashboard
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<IProductDetailRepository, ProductDetailRepository>();
 builder.Services.AddScoped<IProductImagesRepository, ProductImagesRepository>();
+builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 
 var app = builder.Build();
 

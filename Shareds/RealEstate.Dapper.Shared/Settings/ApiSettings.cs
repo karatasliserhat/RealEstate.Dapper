@@ -18,5 +18,6 @@
         public string MessageBaseUrl { get; set; }
         public string ProductDetailBaseUrl { get; set; }
         public string ProductImageBaseUrl { get; set; }
+        public string AppUserBaseUrl { get; set; }
     }
 }

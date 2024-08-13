@@ -19,7 +19,7 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetListProductWithCategoryAndEmplooye()
         {
-            return Ok(await _mediator.Send(new GetListProductWithCategoryAndEmployeeQuery()));
+            return Ok(await _mediator.Send(new GetListProductWithCategoryAndAppUserQuery()));
         }
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetProductById(int id)
@@ -40,12 +40,12 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         [HttpGet("[Action]/{HowProductCount}")]
         public async Task<IActionResult> GetListLastProduct(int HowProductCount)
         {
-            return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndEmployeeQuery(HowProductCount)));
+            return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndAppUserQuery(HowProductCount)));
         }
         [HttpGet("[Action]/{HowProductCount}/{UserId}")]
         public async Task<IActionResult> GetListLastProduct(int HowProductCount, int UserId)
         {
-            return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndEmployeeByUserIdQuery(UserId, HowProductCount)));
+            return Ok(await _mediator.Send(new GetListLastProductWithCategoryAndAppUserByUserIdQuery(UserId, HowProductCount)));
         }
         [HttpGet("[Action]/{id}")]
         public async Task<IActionResult> DealOfTheDayFalse(int id)
@@ -56,7 +56,7 @@ namespace RealEstate.Dapper.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductByIdWithCategoryAndEmployee(int id)
         {
-            return Ok(await _mediator.Send(new GetProductByIdWithCategoryAndEmployeeQuery(id)));
+            return Ok(await _mediator.Send(new GetProductByIdWithCategoryAndAppUserQuery(id)));
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)

@@ -2,9 +2,9 @@
 
 namespace RealEstate.Dapper.WebUI.Models
 {
-    public class GetEmployeAndCategorySelectViewModel
+    public class GetAppUserAndCategorySelectViewModel
     {
         public SelectList CategoryList { get; set; }
-        public SelectList EmployeeList { get; set; }
+        public SelectList AppUserList { get; set; }
     }
 }

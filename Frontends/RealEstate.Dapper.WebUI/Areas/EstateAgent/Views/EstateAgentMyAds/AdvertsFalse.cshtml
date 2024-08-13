@@ -1,4 +1,4 @@
-﻿@model List<ResultProductWithCategoryAndEmployee>
+﻿@model List<ResultProductWithCategoryAndAppUser>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/EstateAgent/Views/EstateAgentLayout/Index.cshtml";
@@ -44,7 +44,7 @@
                                         <td>@item.Price</td>
                                         <td>@item.Type</td>
                                         <td>@item.Address</td>
-                                        <td>@item.EmployeeName</td>
+                                        <td>@item.Name</td>
                                         @if (item.DealOfTheDay == false)
                                         {
                                             <td><a asp-action="DealOfTheDayTrue" asp-controller="AdminProduct" asp-route-dataId="@item.DataProtect" class="btn btn-outline-primary">Aktif Yap</a></td>

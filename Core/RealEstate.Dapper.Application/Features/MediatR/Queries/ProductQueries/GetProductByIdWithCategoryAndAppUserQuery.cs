@@ -3,11 +3,11 @@ using RealEstate.Dapper.Application.Features.MediatR.Results;
 
 namespace RealEstate.Dapper.Application.Features.MediatR.Queries
 {
-    public class GetProductByIdWithCategoryAndEmployeeQuery:IRequest<GetProductByIdWithCategoryAndEmployeeQueryResult>
+    public class GetProductByIdWithCategoryAndAppUserQuery:IRequest<GetProductByIdWithCategoryAndAppUserQueryResult>
     {
         public int Id { get; set; }
 
-        public GetProductByIdWithCategoryAndEmployeeQuery(int id)
+        public GetProductByIdWithCategoryAndAppUserQuery(int id)
         {
             Id = id;
         }

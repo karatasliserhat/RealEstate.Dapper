@@ -16,8 +16,8 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
         private readonly IProductCommandApiService _productCommandApiService;
         private readonly IDataProtector _dataProtector;
         private readonly IMapper _mapper;
-        private readonly GetEmployeeAndCategorySelectList _employeeAndCategorySelectList;
-        public AdminProductController(IProductReadApiService productReadApiService, IProductCommandApiService productCommandApiService, IDataProtectionProvider dataProtectProvider, IMapper mapper, GetEmployeeAndCategorySelectList employeeAndCategorySelectList)
+        private readonly GetAppUserAndCategorySelectList _employeeAndCategorySelectList;
+        public AdminProductController(IProductReadApiService productReadApiService, IProductCommandApiService productCommandApiService, IDataProtectionProvider dataProtectProvider, IMapper mapper, GetAppUserAndCategorySelectList employeeAndCategorySelectList)
         {
             _dataProtector = dataProtectProvider.CreateProtector("AdminProductController");
             _productReadApiService = productReadApiService;
@@ -39,7 +39,7 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
         {
             var values=await _employeeAndCategorySelectList.EmployeeAndCategorySelectList();
             ViewBag.CategoryList = values.CategoryList;
-            ViewBag.EmployeeSelectList = values.EmployeeList;
+            ViewBag.EmployeeSelectList = values.AppUserList;
             return View(new CreateProductViewModel());
         }
         [HttpPost]
@@ -54,7 +54,7 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
 
             var values =await _employeeAndCategorySelectList.EmployeeAndCategorySelectList();
             ViewBag.CategoryList = values.CategoryList;
-            ViewBag.EmployeeSelectList = values.EmployeeList;
+            ViewBag.EmployeeSelectList = values.AppUserList;
             return View();
         }
         [HttpGet]
@@ -64,9 +64,9 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
             var value = await _productReadApiService.GetByIdAsync("GetProductById", dataValues);
             if (value is not null)
             {
-                var values =await _employeeAndCategorySelectList.EmployeeAndCategorySelectList(value.CategoryId, value.EmployeeId);
+                var values =await _employeeAndCategorySelectList.EmployeeAndCategorySelectList(value.CategoryId, value.AppUserId);
                 ViewBag.CategoryList = values.CategoryList;
-                ViewBag.EmployeeSelectList = values.EmployeeList;
+                ViewBag.EmployeeSelectList = values.AppUserList;
                 return View(_mapper.Map<UpdateProductViewModel>(value));
             }
 
@@ -82,9 +82,9 @@ namespace RealEstate.Dapper.WebUI.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var values =await _employeeAndCategorySelectList.EmployeeAndCategorySelectList(value.CategoryId, value.EmployeeId);
+            var values =await _employeeAndCategorySelectList.EmployeeAndCategorySelectList(value.CategoryId, value.AppUserId);
             ViewBag.CategoryList = values.CategoryList;
-            ViewBag.EmployeeSelectList = values.EmployeeList;
+            ViewBag.EmployeeSelectList = values.AppUserList;
             return View();
         }
         public async Task<IActionResult> Delete(string dataId)

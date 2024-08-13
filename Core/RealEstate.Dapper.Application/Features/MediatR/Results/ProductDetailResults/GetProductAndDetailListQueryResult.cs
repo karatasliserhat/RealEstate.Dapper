@@ -11,7 +11,7 @@
         public string Type { get; set; }
         public string Address { get; set; }
         public string CategoryName { get; set; }
-        public string EmployeeName { get; set; }
+        public string Name { get; set; }
         public int Size { get; set; }
         public int BedRoomCount { get; set; }
         public int RoomCount { get; set; }

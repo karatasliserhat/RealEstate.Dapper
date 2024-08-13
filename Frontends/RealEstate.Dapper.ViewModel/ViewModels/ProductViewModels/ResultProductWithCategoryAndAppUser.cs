@@ -1,6 +1,6 @@
 ﻿namespace RealEstate.Dapper.ViewModel.ViewModels
 {
-    public class ResultProductWithCategoryAndEmployee
+    public class ResultProductWithCategoryAndAppUser
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -11,7 +11,7 @@
         public string Type { get; set; }
         public string Address { get; set; }
         public string CategoryName { get; set; }
-        public string EmployeeName { get; set; }
+        public string Name { get; set; }
         public string DataProtect { get; set; }
         public bool DealOfTheDay { get; set; }
         public DateTime CreatedDate { get; set; }

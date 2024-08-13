@@ -40,7 +40,7 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             Services.Configure<ApiSettings>(configuration.GetSection(nameof(ApiSettings)));
 
 
-            Services.AddScoped<GetEmployeeAndCategorySelectList>();
+            Services.AddScoped<GetAppUserAndCategorySelectList>();
             Services.AddScoped<IApiSettings>(sp =>
             {
                 return sp.GetRequiredService<IOptions<ApiSettings>>().Value;
@@ -182,6 +182,11 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             Services.AddHttpClient<IProductImageReadApiService, ProductImageReadApiService>(opt =>
             {
                 opt.BaseAddress = new Uri(apiUrl.ProductImageBaseUrl.ToString());
+            });
+
+            Services.AddHttpClient<IAppUserReadApiService, AppUserReadApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.AppUserBaseUrl.ToString());
             });
         }
     }

@@ -92,36 +92,18 @@
                 <aside class="sidebar">
 
                     <!-- Popular Post Widget-->
-                    <div class="sidebar-widget popular-posts">
-                        <div class="sidebar-title">
-                            <h4>Contact an Agent</h4>
-                        </div>
-
-                        <article class="post">
-                            <figure class="post-thumb">
-                                <img src="assets/images/l5.jpg" class="radius-image" alt="">
-                            </figure>
-                            <div class="text mb-0">
-                                <a href="#blog-single">
-                                    Company realty
-                                </a>
-                                <div class="post-info">+(12) 324 567 89</div>
-                                <div class="post-info">companyrealty@mail.com</div>
-                            </div>
-                        </article>
-                        <button type="submit" class="btn btn-primary btn-style w-100">Request details</button>
-                    </div>
+                    @await Component.InvokeAsync("_AdvertPropertyEstateContactComponentPartial", new { appUserId = Model.AppUserId })
 
 
                     <!-- Popular Post Widget-->
                     <div class="sidebar-widget popular-posts">
                         <div class="sidebar-title">
-                            <h4>Popular Post</h4>
+                            <h4>Emlakçıya Ait Diğer İlanlar</h4>
                         </div>
 
                         <article class="post">
                             <figure class="post-thumb">
-                                <img src="assets/images/l1.jpg" class="radius-image" alt="">
+                                <img src="~/starter/assets/images/l1.jpg" class="radius-image" alt="">
                             </figure>
                             <div class="text">
                                 <a href="#blog-single">
@@ -133,7 +115,7 @@
 
                         <article class="post">
                             <figure class="post-thumb">
-                                <img src="assets/images/l2.jpg" class="radius-image" alt="">
+                                <img src="~/starter/assets/images/l2.jpg" class="radius-image" alt="">
                             </figure>
                             <div class="text">
                                 <a href="#blog-single">
@@ -145,7 +127,7 @@
 
                         <article class="post">
                             <figure class="post-thumb">
-                                <img src="assets/images/l3.jpg" class="radius-image" alt="">
+                                <img src="~/starter/assets/images/l3.jpg" class="radius-image" alt="">
                             </figure>
                             <div class="text">
                                 <a href="#blog-single">

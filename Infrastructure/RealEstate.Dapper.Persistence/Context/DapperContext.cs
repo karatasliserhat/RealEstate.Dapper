@@ -30,6 +30,8 @@ namespace RealEstate.Dapper.Persistence.Context
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Amenity> Amenities { get; set; }
+        public DbSet<PropertyAmenity> PropertyAmenities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

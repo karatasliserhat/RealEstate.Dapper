@@ -1,0 +1,21 @@
+﻿@model List<ResultPropertyAmenityByProductIdStatusTrueViewModel>
+<div class="single-bg-white">
+    <h3 class="post-content-title mb-4">İlana Ait Özellikler</h3>
+    <ul class="details-list">
+        @if (Model.Count > 0)
+        {
+
+            @foreach (var item in Model)
+            {
+                <li><strong>@item.Title </strong></li>
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <p>Özellik Bulunamadı.</p>
+            </div>
+
+        }
+    </ul>
+</div>

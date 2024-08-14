@@ -19,5 +19,6 @@
         public string ProductDetailBaseUrl { get; set; }
         public string ProductImageBaseUrl { get; set; }
         public string AppUserBaseUrl { get; set; }
+        public string PropertyAmenityBaseUrl { get; set; }
     }
 }

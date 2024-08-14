@@ -14,6 +14,7 @@ namespace RealEstate.Dapper.Domain.Configuration
             builder.HasOne(x => x.AppUser).WithMany(x => x.Products).HasForeignKey(x => x.AppUserId);
             builder.HasMany(x => x.ProductDetails).WithOne(x => x.Product).HasForeignKey(x => x.ProductId);
             builder.HasMany(x => x.ProductImages).WithOne(x => x.Product).HasForeignKey(x => x.ProductId);
+            builder.HasMany(x => x.PropertyAmenities).WithOne(x => x.Product).HasForeignKey(x => x.ProductId);
         }
     }
 }

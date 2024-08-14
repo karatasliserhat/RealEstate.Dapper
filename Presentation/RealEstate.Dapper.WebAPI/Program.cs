@@ -69,6 +69,7 @@ builder.Services.AddScoped<IMessageRepository, MessageRepository>();
 builder.Services.AddScoped<IProductDetailRepository, ProductDetailRepository>();
 builder.Services.AddScoped<IProductImagesRepository, ProductImagesRepository>();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
+builder.Services.AddScoped<IProperyAmenityRepository, ProperyAmenityRepository>();
 
 var app = builder.Build();
 

@@ -20,6 +20,7 @@
         public virtual AppUser AppUser { get; set; }
         public List<ProductDetail> ProductDetails { get; set; }
         public List<ProductImage> ProductImages { get; set; }
+        public virtual List<PropertyAmenity> PropertyAmenities { get; set; }
 
     }
 }

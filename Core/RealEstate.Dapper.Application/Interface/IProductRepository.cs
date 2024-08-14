@@ -14,5 +14,6 @@ namespace RealEstate.Dapper.Application.Interface
         Task DealOfTheDayFalse(int id);
 
         Task<List<GetListProductByUserQueryResult>> GetListProductByUserAndTrueOrFalseAsync(int AppUserId, bool status);
+        Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetProductBySearchList(string SearchKeyValue, int CategoryId, string City);
     }
 }

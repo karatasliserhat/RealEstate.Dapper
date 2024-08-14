@@ -108,6 +108,13 @@ namespace RealEstate.Dapper.Persistence.Repositories
             return values.ToList();
         }
 
+        public async Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetProductBySearchList(string SearchKeyValue, int CategoryId, string City)
+        {
+            var query = $"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,Name From Products inner join Categories on Products.CategoryId=Categories.Id inner join AppUsers on Products.AppUserId=AppUsers.UserId Where Products.Title like '%{SearchKeyValue}%' and Products.CategoryId={CategoryId} and Products.City='{City}'";
+            var values = await _connection.QueryAsync<GetListProductWithCategoryAndAppUserQueryResult>(query);
+            return values.ToList();
+        }
+
         public async Task UpdateAsync(Product entity)
         {
             var query = $"Update Products Set Title=@title,Price=@price,CoverImage=@coverImage,City=@city,District=@district,Address=@address,Description=@description,Type=@type,CategoryId=@categoryId,AppUserId=@appUserId, DealOfTheDay=@dealOfTheDay Where Id=@id";

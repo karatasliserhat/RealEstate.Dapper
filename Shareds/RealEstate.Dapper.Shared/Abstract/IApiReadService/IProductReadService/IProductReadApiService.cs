@@ -8,5 +8,6 @@ namespace RealEstate.Dapper.Shared.Abstract.IApiReadService.IProductReadService
         Task<List<ResultProductWithCategoryAndAppUser>> GetListLastProductAsync(int HowProductCount);
         Task<List<ResultProductWithCategoryAndAppUser>> GetListLastProductAsync(int HowProductCount,int UserId);
         Task<List<ResultProductWithCategoryAndAppUser>> GetListProductByUserAsync(int UserId,bool status);
+        Task<List<ResultProductWithCategoryAndAppUser>> GetProductListBySearchQuery(string SearchKeyValue, int CategoryId, string City);
     }
 }

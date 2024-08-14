@@ -12,7 +12,9 @@
 
     @await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
 
-    @await Component.InvokeAsync("_UILayoutSearchComponentPartial")
+    @*@await Component.InvokeAsync("_UILayoutSearchComponentPartial")*@
+
+    @await Html.PartialAsync("/Views/Default/SearchProperty.cshtml")
 
     @RenderBody()
 

@@ -30,5 +30,9 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService.ProductReadService
         {
             return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndAppUser>>("");
         }
+        public async Task<List<ResultProductWithCategoryAndAppUser>> GetProductListBySearchQuery(string SearchKeyValue, int CategoryId, string City)
+        {
+            return await _httpClient.GetFromJsonAsync<List<ResultProductWithCategoryAndAppUser>>($"GetProductListBySearchQuery/{SearchKeyValue}/{CategoryId}/{City}");
+        }
     }
 }

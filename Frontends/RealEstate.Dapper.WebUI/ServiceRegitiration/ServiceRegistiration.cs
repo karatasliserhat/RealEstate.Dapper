@@ -164,9 +164,9 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
                 opt.BaseAddress = new Uri(apiUrl.AccountBaseUrl.ToString());
             });
 
-            Services.AddScoped(typeof(IEstateAgentDashboardReadApiService<>), typeof(EstateAgentDashboardReadApiService<>)).ConfigureHttpClientDefaults(opt =>
+            Services.AddHttpClient<IEstateAgentDashboardReadApiService, EstateAgentDashboardReadApiService>(opt =>
             {
-                opt.ConfigureHttpClient(conf => { conf.BaseAddress = new Uri(apiUrl.EstateAgentBaseUrl.ToString()); });
+                opt.BaseAddress = new Uri(apiUrl.EstateAgentBaseUrl.ToString());
             });
 
             Services.AddHttpClient<IMessageReadApiService, MessageReadApiService>(opt =>

@@ -14,7 +14,7 @@ namespace RealEstate.Dapper.WebUI.ViewComponents.UILayoutViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var values = await _productReadApiService.GetListProductWithCategoryAndEmployeeAsync();
+            var values = await _productReadApiService.GetListProductByDealOfTheDayQueryAsync();
             return View(values);
         }
     }

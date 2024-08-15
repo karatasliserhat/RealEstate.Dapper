@@ -1,9 +1,10 @@
 ﻿using RealEstate.Dapper.Shared.Abstract.IApiReadService;
+using RealEstate.Dapper.ViewModel.ViewModels;
 using System.Net.Http.Json;
 
 namespace RealEstate.Dapper.Shared.Services.ApiReadService
 {
-    public class EstateAgentDashboardReadApiService<GetResultViewCountModel> : IEstateAgentDashboardReadApiService<GetResultViewCountModel> where GetResultViewCountModel : class
+    public class EstateAgentDashboardReadApiService : IEstateAgentDashboardReadApiService
     {
         private readonly HttpClient _httpClient;
 
@@ -12,18 +13,24 @@ namespace RealEstate.Dapper.Shared.Services.ApiReadService
             _httpClient = httpClient;
         }
 
-        public async Task<GetResultViewCountModel> GetResultViewCount(string Action, int id)
+        public async Task<GetProductCountByEmployeeIdViewModel> GetProductCountByEmployeeId(int userId)
         {
-            return await _httpClient.GetFromJsonAsync<GetResultViewCountModel>($"{Action}/{id}");
+            return await _httpClient.GetFromJsonAsync<GetProductCountByEmployeeIdViewModel>($"ProductCountByEmployeeId/{userId}");
         }
 
-        public async Task<GetResultViewCountModel> GetResultViewCount(string Action)
+        public async Task<GetProductCountByStatusFalseViewModel> GetProductCountByStatusFalse(int userId)
         {
-            return await _httpClient.GetFromJsonAsync<GetResultViewCountModel>($"{Action}");
+           return await _httpClient.GetFromJsonAsync<GetProductCountByStatusFalseViewModel>($"ProductCountByStatusFalse/{userId}");
         }
-        public async Task<List<GetResultViewCountModel>> GetResultViewList(string Action)
+
+        public async Task<GetProductCountByStatusTrueViewModel> GetProductCountByStatusTrue(int userId)
         {
-            return await _httpClient.GetFromJsonAsync<List<GetResultViewCountModel>>($"{Action}");
+            return await _httpClient.GetFromJsonAsync<GetProductCountByStatusTrueViewModel>($"ProductCountByStatusTrue/{userId}");
+        }
+
+        public async Task<List<ResultCityCountViewModel>> ResultCityCount()
+        {
+            return await _httpClient.GetFromJsonAsync<List<ResultCityCountViewModel>>($"GetLastFiveCountCity");
         }
     }
 }

@@ -9,17 +9,17 @@
         string StepsGridBaseUrl { get; set; }
         string PopulerLocationBaseUrl { get; set; }
         string TestimonialBaseUrl { get; set; }
-        public string EmployeeBaseUrl { get; set; }
-        public string StatisticsBaseUrl { get; set; }
-        public string ContactBaseUrl { get; set; }
-        public string ToDoListBaseUrl { get; set; }
-        public string AccountBaseUrl { get; set; }
-        public string EstateAgentBaseUrl { get; set; }
-        public string MessageBaseUrl { get; set; }
-        public string ProductDetailBaseUrl { get; set; }
-        public string ProductImageBaseUrl { get; set; }
-        public string AppUserBaseUrl { get; set; }
-        public string PropertyAmenityBaseUrl { get; set; }
+        string EmployeeBaseUrl { get; set; }
+        string StatisticsBaseUrl { get; set; }
+        string ContactBaseUrl { get; set; }
+        string ToDoListBaseUrl { get; set; }
+        string AccountBaseUrl { get; set; }
+        string EstateAgentBaseUrl { get; set; }
+        string MessageBaseUrl { get; set; }
+        string ProductDetailBaseUrl { get; set; }
+        string ProductImageBaseUrl { get; set; }
+        string AppUserBaseUrl { get; set; }
+        string PropertyAmenityBaseUrl { get; set; }
 
     }
 }

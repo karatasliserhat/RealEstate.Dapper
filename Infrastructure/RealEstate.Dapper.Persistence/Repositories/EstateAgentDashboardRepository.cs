@@ -23,21 +23,21 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task<int> ProductCountByEmployeeIdAsync(int id)
         {
-            var query = $"Select * From Products Where EmployeeId={id}";
+            var query = $"Select * From Products Where AppUserId={id}";
             var values = await _connection.QueryAsync<int>(query);
             return values.Count();
         }
 
         public async Task<int> ProductCountByStatusFalseAsync(int id)
         {
-            var query = $"Select * From Products Where Status=0 and EmployeeId={id}";
+            var query = $"Select * From Products Where Status=0 and AppUserId={id}";
             var values = await _connection.QueryAsync<int>(query);
             return values.Count();
         }
 
         public async Task<int> ProductCountByStatusTrueAsync(int id)
         {
-            var query = $"Select * From Products Where Status=1 and EmployeeId={id}";
+            var query = $"Select * From Products Where Status=1 and AppUserId={id}";
             var values = await _connection.QueryAsync<int>(query);
             return values.Count();
         }

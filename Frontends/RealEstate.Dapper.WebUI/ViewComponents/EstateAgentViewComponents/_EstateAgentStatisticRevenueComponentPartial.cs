@@ -7,33 +7,29 @@ namespace RealEstate.Dapper.WebUI.ViewComponents.EstateAgentViewComponents
 {
     public class _EstateAgentStatisticRevenueComponentPartial : ViewComponent
     {
-        private readonly IEstateAgentDashboardReadApiService<ResultProductCountViewModel> _resultProductCount;
-        private readonly IEstateAgentDashboardReadApiService<GetProductCountByEmployeeIdViewModel> _getProductCountEmloyeeId;
-        private readonly IEstateAgentDashboardReadApiService<GetProductCountByStatusFalseViewModel> _getProductCountStatusFalse;
-        private readonly IEstateAgentDashboardReadApiService<GetProductCountByStatusTrueViewModel> _getProductCountStatusTrue;
+        private readonly IEstateAgentDashboardReadApiService _apiService;
         private readonly IUserService _userService;
-        public _EstateAgentStatisticRevenueComponentPartial(IEstateAgentDashboardReadApiService<ResultProductCountViewModel> resultProductCount, IEstateAgentDashboardReadApiService<GetProductCountByEmployeeIdViewModel> getProductCountEmloyeeId, IEstateAgentDashboardReadApiService<GetProductCountByStatusFalseViewModel> getProductCountStatusFalse, IEstateAgentDashboardReadApiService<GetProductCountByStatusTrueViewModel> getProductCountStatusTrue, IUserService userService)
+        private readonly IStatisticsReadApiService<ResultProductCountViewModel> _statisticsReadApiService;
+        public _EstateAgentStatisticRevenueComponentPartial(IEstateAgentDashboardReadApiService apiService, IUserService userService, IStatisticsReadApiService<ResultProductCountViewModel> statisticsReadApiService)
         {
-            _resultProductCount = resultProductCount;
-            _getProductCountEmloyeeId = getProductCountEmloyeeId;
-            _getProductCountStatusFalse = getProductCountStatusFalse;
-            _getProductCountStatusTrue = getProductCountStatusTrue;
+            _apiService = apiService;
             _userService = userService;
+            _statisticsReadApiService = statisticsReadApiService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var values = await _resultProductCount.GetResultViewCount("GetProductCount");
+            var values = await _statisticsReadApiService.GetStatisticResult("GetProductCount");
             ViewBag.ProductCount = values.Count;
 
-            var valueProductCountEmployee = await _getProductCountEmloyeeId.GetResultViewCount("ProductCountByEmployeeId", int.Parse(_userService.GetUser));
+            var valueProductCountEmployee = await _apiService.GetProductCountByEmployeeId(int.Parse(_userService.GetUser));
             ViewBag.EmployeeProductCount = valueProductCountEmployee.Count;
 
 
-            var productCountTrue = await _getProductCountStatusTrue.GetResultViewCount("ProductCountByStatusTrue", int.Parse(_userService.GetUser));
+            var productCountTrue = await _apiService.GetProductCountByStatusTrue(int.Parse(_userService.GetUser));
             ViewBag.ProductCountTrue = productCountTrue.Count;
 
-            var productCountFalse = await _getProductCountStatusFalse.GetResultViewCount("ProductCountByStatusFalse", int.Parse(_userService.GetUser));
+            var productCountFalse = await _apiService.GetProductCountByStatusFalse(int.Parse(_userService.GetUser));
             ViewBag.ProductCountFalse = productCountFalse.Count;
 
             return View();

@@ -6,6 +6,7 @@ namespace RealEstate.Dapper.Application.Interface
     public interface IProductRepository : IGenericRepository<Product>
     {
         Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListProductWithAppUserAndCategory();
+        Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListProductByDealOfTheDayTrue();
         Task<GetProductByIdWithCategoryAndAppUserQueryResult> GetByIdWithCategoryAndAppUserAsync(int id);
 
         Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListLastProductAsync(int HowProductCount);

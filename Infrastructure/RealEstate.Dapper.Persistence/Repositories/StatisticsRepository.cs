@@ -76,7 +76,7 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task<string> EmployeeNameByMaxProductCount()
         {
-            var query = "Select Top(1) EmployeeName,Count(EmployeeId) from Products Inner Join Employees on Products.EmployeeId=Employees.Id Group By EmployeeName";
+            var query = "Select Top(1) Name,Count(UserId) from Products Inner Join AppUsers on Products.AppUserId=AppUsers.UserId Group By Name";
             return await _connection.QueryFirstOrDefaultAsync<string>(query);
         }
 

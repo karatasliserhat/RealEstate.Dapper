@@ -93,6 +93,13 @@ namespace RealEstate.Dapper.Persistence.Repositories
             return values.ToList();
         }
 
+        public async Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListProductByDealOfTheDayTrue()
+        {
+            var query = ($"Select Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,Name From Products inner join Categories on Products.CategoryId=Categories.Id inner join AppUsers on Products.AppUserId=AppUsers.UserId Where Products.DealOfTheDay=1 Order By Products.Id Desc");
+            var values = await _connection.QueryAsync<GetListProductWithCategoryAndAppUserQueryResult>(query);
+            return values.ToList();
+        }
+
         public async Task<List<GetListProductByUserQueryResult>> GetListProductByUserAndTrueOrFalseAsync(int AppUserId, bool status)
         {
             var status1 = status == true ? 1 : 0;

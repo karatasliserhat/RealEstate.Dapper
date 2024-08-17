@@ -26,6 +26,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+
+    name: "advert",
+    pattern: "property/{slug}/{id}",
+        defaults: new { controller = "Advert", action = "PropertyAdvert" });
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 

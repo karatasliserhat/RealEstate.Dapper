@@ -12,7 +12,16 @@ namespace RealEstate.Dapper.WebUI.Controllers
         private readonly IProductReadApiService _productsReadApiService;
 
 
+        private string CreateSlug(string title)
+        {
+            title = title.ToLowerInvariant(); // Küçük harfe çevir
+            title = title.Replace(" ", "-"); // Boşlukları tire ile değiştir
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"[^a-z0-9\s-]", ""); // Geçersiz karakterleri kaldır
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"\s+", " ").Trim(); // Birden fazla boşluğu tek boşluğa indir ve kenar boşluklarını kaldır
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"\s", "-"); // Boşlukları tire ile değiştir
 
+            return title;
+        }
         public AdvertController(IProductDetailReadApiService productDetailReadApiService, IDataProtectionProvider dataProvider, IProductReadApiService productsReadApiService)
         {
             _dataProtector = dataProvider.CreateProtector("AdvertController");
@@ -32,10 +41,12 @@ namespace RealEstate.Dapper.WebUI.Controllers
 
             var values = await _productDetailReadApiService.GetListAsync("GetProductAndDetailList");
             values.ForEach(x => x.DataProtect = _dataProtector.Protect(x.Id.ToString()));
+            values.ForEach(x => x.SlugUrlRegister = CreateSlug(x.SlugUrl));
             return View(values);
         }
 
-        public async Task<IActionResult> PropertyAdvert(string dataid)
+        [HttpGet("property/{slugUrl}/{dataid}")]
+        public async Task<IActionResult> PropertyAdvert(string slugUrl, string dataid)
         {
 
             GetViewBag("Anasayfa", "İlanlar", "İlan Detayı");

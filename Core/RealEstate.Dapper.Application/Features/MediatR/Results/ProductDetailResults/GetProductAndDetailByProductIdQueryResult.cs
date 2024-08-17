@@ -6,6 +6,7 @@ namespace RealEstate.Dapper.Application.Features.MediatR.Results
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string SlugUrl { get; set; }
         public decimal Price { get; set; }
         public string CoverImage { get; set; }
         public string City { get; set; }

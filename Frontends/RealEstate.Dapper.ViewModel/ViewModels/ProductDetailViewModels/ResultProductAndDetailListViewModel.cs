@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string SlugUrl { get; set; }
+        public string SlugUrlRegister { get; set; }
         public decimal Price { get; set; }
         public string CoverImage { get; set; }
         public string City { get; set; }

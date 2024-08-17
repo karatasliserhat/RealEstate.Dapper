@@ -20,6 +20,7 @@
         string ProductImageBaseUrl { get; set; }
         string AppUserBaseUrl { get; set; }
         string PropertyAmenityBaseUrl { get; set; }
+        string SubFeatureBaseUrl { get; set; }
 
     }
 }

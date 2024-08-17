@@ -193,6 +193,11 @@ namespace RealEstate.Dapper.WebUI.ServiceRegitiration
             {
                 opt.BaseAddress = new Uri(apiUrl.PropertyAmenityBaseUrl.ToString());
             });
+            
+            Services.AddHttpClient<ISubFeatureReadApiService, SubFeatureReadApiService>(opt =>
+            {
+                opt.BaseAddress = new Uri(apiUrl.SubFeatureBaseUrl.ToString());
+            });
         }
     }
 }

@@ -81,14 +81,14 @@ namespace RealEstate.Dapper.Persistence.Repositories
 
         public async Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListLastProductAsync(int HowProductCount)
         {
-            var query = ($"Select Top({HowProductCount}) Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,Name From Products inner join Categories on Products.CategoryId=Categories.Id inner join AppUsers on Products.AppUserId=AppUsers.UserId Order By Products.Id Desc");
+            var query = ($"Select Top({HowProductCount}) Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay, Products.Description,Products.CreatedDate,CategoryName,Name From Products inner join Categories on Products.CategoryId=Categories.Id inner join AppUsers on Products.AppUserId=AppUsers.UserId Order By Products.Id Desc");
             var values = await _connection.QueryAsync<GetListProductWithCategoryAndAppUserQueryResult>(query);
             return values.ToList();
         }
 
         public async Task<List<GetListProductWithCategoryAndAppUserQueryResult>> GetListLastProductAsync(int HowProductCount, int UserId)
         {
-            var query = ($"Select Top({HowProductCount}) Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay,Products.CreatedDate,CategoryName,Name From Products inner join Categories on Products.CategoryId=Categories.Id inner join AppUsers on Products.AppUserId=AppUsers.UserId Where AppUserId={UserId} Order By Products.Id Desc");
+            var query = ($"Select Top({HowProductCount}) Products.Id,Products.Title,Products.Price,Products.CoverImage,Products.City,Products.District,Products.Address,Products.Type,Products.DealOfTheDay, Products.Description,Products.CreatedDate,CategoryName,Name From Products inner join Categories on Products.CategoryId=Categories.Id inner join AppUsers on Products.AppUserId=AppUsers.UserId Where AppUserId={UserId} Order By Products.Id Desc");
             var values = await _connection.QueryAsync<GetListProductWithCategoryAndAppUserQueryResult>(query);
             return values.ToList();
         }

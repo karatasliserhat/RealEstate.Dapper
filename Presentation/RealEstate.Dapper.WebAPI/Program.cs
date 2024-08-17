@@ -70,6 +70,7 @@ builder.Services.AddScoped<IProductDetailRepository, ProductDetailRepository>();
 builder.Services.AddScoped<IProductImagesRepository, ProductImagesRepository>();
 builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 builder.Services.AddScoped<IProperyAmenityRepository, ProperyAmenityRepository>();
+builder.Services.AddScoped<ISubFeatureRepository, SubFeatureRepository>();
 
 var app = builder.Build();
 
